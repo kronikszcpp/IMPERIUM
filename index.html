@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPERIUM ESPORTS | Official</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: #eeeeee; scroll-behavior: smooth; }
+        .font-title { font-family: 'Bebas Neue', cursive; }
+        .gold-gradient {
+            background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-blur {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card-blur:hover {
+            border-color: #D4AF37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), #0a0a0a),
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover; background-position: center;
+        }
+        .lang-btn { cursor: pointer; transition: all 0.3s; opacity: 0.5; }
+        .lang-btn.active { opacity: 1; color: #D4AF37; font-weight: bold; }
+        .badge { font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto relative z-50">
+        <div class="text-3xl font-title tracking-widest gold-gradient">IMPERIUM</div>
+        <div class="flex items-center space-x-6">
+            <div class="flex space-x-2 text-xs mr-4">
+                <span id="btn-hu" class="lang-btn active" onclick="setLanguage('hu')">HU</span>
+                <span class="text-gray-600">|</span>
+                <span id="btn-en" class="lang-btn" onclick="setLanguage('en')">EN</span>
+            </div>
+            <div class="space-x-8 hidden md:block uppercase text-sm tracking-widest">
+                <a href="#games" id="nav-games" class="hover:text-yellow-500 transition text-gray-400">Játékok</a>
+                <a href="#roster" id="nav-roster" class="hover:text-yellow-500 transition text-gray-400">Csapat</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg h-[70vh] flex flex-col justify-center items-center text-center px-4">
+        <h1 class="text-7xl md:text-9xl font-title tracking-tighter mb-4 gold-gradient uppercase">Imperium Esports</h1>
+        <p id="hero-quote" class="text-xl md:text-2xl max-w-3xl text-gray-300 mb-8 italic font-light tracking-wide">
+            "Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."
+        </p>
+        <a href="https://discord.gg/YBqjQ8aa" target="_blank" id="hero-btn" class="border-2 border-yellow-600 text-yellow-500 px-10 py-4 font-bold rounded-sm hover:bg-yellow-600 hover:text-black transition-all uppercase tracking-widest">Csatlakozás</a>
+    </header>
+
+    <section id="roster" class="py-20 bg-[#0c0c0c]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 id="title-roster" class="text-5xl font-title text-center mb-16 tracking-widest uppercase">A Csapat</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="card-blur p-6 rounded-xl border-t-4 border-yellow-600 text-center md:col-span-2 lg:col-span-4">
+                    <span id="badge-leader" class="badge bg-yellow-600 text-black mb-2 inline-block">Leader</span>
+                    <h4 class="text-2xl font-title tracking-widest">Kroniksz (B3N3D3K)</h4>
+                    <p class="text-gray-400 text-xs mt-1 uppercase">PUBG</p>
+                </div>
+
+                <div class="card-blur p-6 rounded-xl border-t-4 border-gray-500">
+                    <span id="badge-mod-1" class="badge bg-gray-600 text-white mb-2 inline-block">Moderátor</span>
+                    <h4 class="text-2xl font-title tracking-wide">FFR</h4>
+                    <p class="text-gray-400 text-xs mt-1 uppercase">PUBG + Brawl Stars</p>
+                </div>
+
+                <div class="card-blur p-6 rounded-xl border-t-4 border-gray-500">
+                    <span id="badge-mod-2" class="badge bg-gray-600 text-white mb-2 inline-block">Moderátor</span>
+                    <h4 class="text-2xl font-title tracking-wide">Lonino</h4>
+                    <p class="text-gray-400 text-xs mt-1 uppercase">Brawl Stars</p>
+                </div>
+
+                <div class="card-blur p-6 rounded-xl border-t-4 border-blue-500">
+                    <span id="badge-social" class="badge bg-blue-600 text-white mb-2 inline-block">Social Manager</span>
+                    <h4 class="text-2xl font-title tracking-wide">Nagyakos</h4>
+                    <p class="text-gray-400 text-xs mt-1 uppercase">PUBG</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center">
+        <h3 id="footer-join" class="text-2xl font-title mb-6 tracking-widest">Készen állsz a harcra?</h3>
+        <a href="https://discord.gg/YBqjQ8aa" target="_blank" class="bg-yellow-600 text-black px-12 py-3 rounded-full font-bold hover:bg-yellow-400 transition uppercase tracking-widest text-sm">Discord</a>
+    </footer>
+
+    <script>
+        const translations = {
+            hu: {
+                navGames: "Játékok", navRoster: "Csapat",
+                heroQuote: '"Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."',
+                heroBtn: "Csatlakozás",
+                titleRoster: "A Csapat",
+                badgeLeader: "Leader",
+                badgeMod1: "Moderátor",
+                badgeMod2: "Moderátor",
+                badgeSocial: "Social Manager",
+                footerJoin: "Készen állsz a harcra?"
+            },
+            en: {
+                navGames: "Games", navRoster: "The Team",
+                heroQuote: '"Where discipline and firepower meet, legends are born."',
+                heroBtn: "Join Now",
+                titleRoster: "The Team",
+                badgeLeader: "Leader",
+                badgeMod1: "Moderator",
+                badgeMod2: "Moderator",
+                badgeSocial: "Social Manager",
+                footerJoin: "Ready for the battle?"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById('nav-games').innerText = translations[lang].navGames;
+            document.getElementById('nav-roster').innerText = translations[lang].navRoster;
+            document.getElementById('hero-quote').innerText = translations[lang].heroQuote;
+            document.getElementById('hero-btn').innerText = translations[lang].heroBtn;
+            document.getElementById('title-roster').innerText = translations[lang].titleRoster;
+            document.getElementById('badge-leader').innerText = translations[lang].badgeLeader;
+            document.getElementById('badge-mod-1').innerText = translations[lang].badgeMod1;
+            document.getElementById('badge-mod-2').innerText = translations[lang].badgeMod2;
+            document.getElementById('badge-social').innerText = translations[lang].badgeSocial;
+            document.getElementById('footer-join').innerText = translations[lang].footerJoin;
+
+            document.getElementById('btn-hu').classList.toggle('active', lang === 'hu');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+    </script>
+</body>
+</html>
