@@ -60,6 +60,18 @@
         <a href="https://discord.gg/YBqjQ8aa" target="_blank" id="hero-btn" class="border-2 border-yellow-600 text-yellow-500 px-10 py-4 font-bold rounded-sm hover:bg-yellow-600 hover:text-black transition-all uppercase tracking-widest">Csatlakozás</a>
     </header>
 
+    <section id="games" class="py-20 max-w-7xl mx-auto px-6 text-center">
+        <h2 id="title-games" class="text-4xl font-title mb-16 tracking-widest underline decoration-yellow-600 underline-offset-8 uppercase">Játékaink</h2>
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="card-blur p-12 rounded-2xl">
+                <h3 class="text-4xl font-title mb-4 gold-gradient tracking-widest uppercase">PUBG Mobile</h3>
+            </div>
+            <div class="card-blur p-12 rounded-2xl">
+                <h3 class="text-4xl font-title mb-4 gold-gradient tracking-widest uppercase">Brawl Stars</h3>
+            </div>
+        </div>
+    </section>
+
     <section id="roster" class="py-20 bg-[#0c0c0c]">
         <div class="max-w-7xl mx-auto px-6">
             <h2 id="title-roster" class="text-5xl font-title text-center mb-16 tracking-widest uppercase">A Csapat</h2>
@@ -72,14 +84,14 @@
                     <p class="text-gray-400 text-xs mt-1 uppercase">PUBG</p>
                 </div>
 
-                <div class="card-blur p-6 rounded-xl border-t-4 border-gray-500">
-                    <span id="badge-mod-1" class="badge bg-gray-600 text-white mb-2 inline-block">Moderátor</span>
+                <div class="card-blur p-6 rounded-xl border-t-4 border-red-500">
+                    <span id="badge-mod-1" class="badge bg-red-600 text-white mb-2 inline-block">Moderátor</span>
                     <h4 class="text-2xl font-title tracking-wide">FFR</h4>
                     <p class="text-gray-400 text-xs mt-1 uppercase">PUBG + Brawl Stars</p>
                 </div>
 
-                <div class="card-blur p-6 rounded-xl border-t-4 border-gray-500">
-                    <span id="badge-mod-2" class="badge bg-gray-600 text-white mb-2 inline-block">Moderátor</span>
+                <div class="card-blur p-6 rounded-xl border-t-4 border-red-500">
+                    <span id="badge-mod-2" class="badge bg-red-600 text-white mb-2 inline-block">Moderátor</span>
                     <h4 class="text-2xl font-title tracking-wide">Lonino</h4>
                     <p class="text-gray-400 text-xs mt-1 uppercase">Brawl Stars</p>
                 </div>
@@ -90,12 +102,17 @@
                     <p class="text-gray-400 text-xs mt-1 uppercase">PUBG</p>
                 </div>
 
+                <div class="card-blur p-6 rounded-xl border-t-4 border-green-500">
+                    <span id="badge-social" class="badge bg-green-600 text-white mb-2 inline-block">Technical support</span>
+                    <h4 class="text-2xl font-title tracking-wide">BLightAdee</h4>
+                    <p class="text-gray-400 text-xs mt-1 uppercase"></p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="py-20 text-center">
-        <h3 id="footer-join" class="text-2xl font-title mb-6 tracking-widest">Készen állsz a harcra?</h3>
+        <h3 id="footer-join" class="text-2xl font-title mb-6 tracking-widest uppercase">Készen állsz a harcra?</h3>
         <a href="https://discord.gg/YBqjQ8aa" target="_blank" class="bg-yellow-600 text-black px-12 py-3 rounded-full font-bold hover:bg-yellow-400 transition uppercase tracking-widest text-sm">Discord</a>
     </footer>
 
@@ -105,6 +122,7 @@
                 navGames: "Játékok", navRoster: "Csapat",
                 heroQuote: '"Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."',
                 heroBtn: "Csatlakozás",
+                titleGames: "Játékaink",
                 titleRoster: "A Csapat",
                 badgeLeader: "Leader",
                 badgeMod1: "Moderátor",
@@ -116,6 +134,7 @@
                 navGames: "Games", navRoster: "The Team",
                 heroQuote: '"Where discipline and firepower meet, legends are born."',
                 heroBtn: "Join Now",
+                titleGames: "Our Games",
                 titleRoster: "The Team",
                 badgeLeader: "Leader",
                 badgeMod1: "Moderator",
@@ -130,6 +149,7 @@
             document.getElementById('nav-roster').innerText = translations[lang].navRoster;
             document.getElementById('hero-quote').innerText = translations[lang].heroQuote;
             document.getElementById('hero-btn').innerText = translations[lang].heroBtn;
+            document.getElementById('title-games').innerText = translations[lang].titleGames;
             document.getElementById('title-roster').innerText = translations[lang].titleRoster;
             document.getElementById('badge-leader').innerText = translations[lang].badgeLeader;
             document.getElementById('badge-mod-1').innerText = translations[lang].badgeMod1;
