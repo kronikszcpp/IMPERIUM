@@ -66,7 +66,7 @@
 
         <section class="py-20 max-w-7xl mx-auto px-6 text-center">
             <h2 id="title-games" class="text-4xl font-title mb-16 tracking-widest underline decoration-yellow-600 underline-offset-8 uppercase">Játékaink</h2>
-            <div class="grid md:grid-cols-2 gap-10">
+            <div class="grid md:grid-cols-2 gap-10 mb-16">
                 <div class="card-blur p-12 rounded-2xl border-2 border-transparent" onclick="showView('pubg')">
                     <h3 class="text-4xl font-title mb-4 gold-gradient tracking-widest uppercase">PUBG Mobile <br> ACE+</h3>
                     <p class="text-yellow-600 text-sm font-bold uppercase tracking-widest btn-view">Megtekintés</p>
@@ -76,11 +76,19 @@
                     <p class="text-yellow-600 text-sm font-bold uppercase tracking-widest btn-view">Megtekintés</p>
                 </div>
             </div>
+
+            <div class="mt-12">
+                <button onclick="showView('events')" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-transparent border-2 border-yellow-600 rounded-full hover:bg-yellow-600 hover:text-black">
+                    <span id="btn-all-events" class="uppercase tracking-widest text-sm">Összes esemény megtekintése</span>
+                    <svg class="w-5 h-5 ml-3 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </button>
+            </div>
         </section>
     </main>
 
     <section id="view-events" class="hidden-view py-10 max-w-5xl mx-auto px-6">
-        <h2 id="title-events-page" class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">Események / Events</h2>
+        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 flex items-center gap-2 back-btn-text">← Vissza</button>
+        <h2 id="title-events-page" class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">Események</h2>
         
         <div class="mb-12">
             <h3 class="text-2xl font-title text-yellow-600 mb-6 tracking-widest border-b border-yellow-600/30 pb-2">Brawl Stars</h3>
@@ -91,7 +99,7 @@
                         <h4 class="text-xl font-title">Brawl Stars Esport</h4>
                     </div>
                     <div class="text-right">
-                        <p class="badge bg-yellow-600 text-black mb-1">Eredmény</p>
+                        <p class="badge bg-yellow-600 text-black mb-1 status-label-result">Eredmény</p>
                         <p class="status-result">TOP 500</p>
                     </div>
                 </div>
@@ -173,13 +181,15 @@
                 navGames: "Játékok", navEvents: "Események",
                 heroQuote: '"Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."',
                 titleGames: "Játékaink", btnView: "Megtekintés",
-                backBtn: "← Vissza", upcoming: "Következik", result: "Eredmény"
+                backBtn: "← Vissza", upcoming: "Következik", result: "Eredmény",
+                allEvents: "Összes esemény megtekintése", titleEventsPage: "Események"
             },
             en: {
                 navGames: "Games", navEvents: "Events",
                 heroQuote: '"Where discipline and firepower meet, legends are born."',
                 titleGames: "Our Games", btnView: "View Team",
-                backBtn: "← Back", upcoming: "Upcoming", result: "Result"
+                backBtn: "← Back", upcoming: "Upcoming", result: "Result",
+                allEvents: "View All Events", titleEventsPage: "Events"
             }
         };
 
@@ -188,10 +198,13 @@
             document.getElementById('nav-events').innerText = translations[lang].navEvents;
             document.getElementById('hero-quote').innerText = translations[lang].heroQuote;
             document.getElementById('title-games').innerText = translations[lang].titleGames;
+            document.getElementById('btn-all-events').innerText = translations[lang].allEvents;
+            document.getElementById('title-events-page').innerText = translations[lang].titleEventsPage;
             
             document.querySelectorAll('.btn-view').forEach(el => el.innerText = translations[lang].btnView);
             document.querySelectorAll('.back-btn-text').forEach(el => el.innerText = translations[lang].backBtn);
             document.querySelectorAll('.status-label-upcoming').forEach(el => el.innerText = translations[lang].upcoming);
+            document.querySelectorAll('.status-label-result').forEach(el => el.innerText = translations[lang].result);
 
             document.getElementById('btn-hu').classList.toggle('active', lang === 'hu');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
