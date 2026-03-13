@@ -35,7 +35,6 @@
         .lang-btn.active { opacity: 1; color: #D4AF37; font-weight: bold; }
         .badge { font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; }
         .hidden-view { display: none; }
-        .status-upcoming { color: #60a5fa; font-weight: bold; }
         .status-result { color: #facc15; font-weight: bold; }
     </style>
 </head>
@@ -76,33 +75,21 @@
                     <p class="text-yellow-600 text-sm font-bold uppercase tracking-widest btn-view">Megtekintés</p>
                 </div>
             </div>
-
-            <div class="mt-12">
-                <button onclick="showView('events')" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-transparent border-2 border-yellow-600 rounded-full hover:bg-yellow-600 hover:text-black">
-                    <span id="btn-all-events" class="uppercase tracking-widest text-sm">Összes esemény megtekintése</span>
-                    <svg class="w-5 h-5 ml-3 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                </button>
-            </div>
+            <button onclick="showView('events')" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-transparent border-2 border-yellow-600 rounded-full hover:bg-yellow-600 hover:text-black">
+                <span id="btn-all-events" class="uppercase tracking-widest text-sm">Összes esemény megtekintése</span>
+            </button>
         </section>
     </main>
 
     <section id="view-events" class="hidden-view py-10 max-w-5xl mx-auto px-6">
-        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 flex items-center gap-2 back-btn-text">← Vissza</button>
+        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 back-btn-text">← Vissza</button>
         <h2 id="title-events-page" class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">Események</h2>
         
         <div class="mb-12">
             <h3 class="text-2xl font-title text-yellow-600 mb-6 tracking-widest border-b border-yellow-600/30 pb-2">Brawl Stars</h3>
-            <div class="space-y-4">
-                <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase">2026. Március 7.</p>
-                        <h4 class="text-xl font-title">Brawl Stars Esport</h4>
-                    </div>
-                    <div class="text-right">
-                        <p class="badge bg-yellow-600 text-black mb-1 status-label-result">Eredmény</p>
-                        <p class="status-result">TOP 373</p>
-                    </div>
-                </div>
+            <div class="card-blur p-6 rounded-xl flex justify-between items-center">
+                <div><p class="text-xs text-gray-500 uppercase">2026. Március 7.</p><h4 class="text-xl font-title">Brawl Stars Esport</h4></div>
+                <div class="text-right"><p class="badge bg-yellow-600 text-black mb-1 status-label-result">Eredmény</p><p class="status-result">TOP 500</p></div>
             </div>
         </div>
 
@@ -110,33 +97,30 @@
             <h3 class="text-2xl font-title text-yellow-600 mb-6 tracking-widest border-b border-yellow-600/30 pb-2">PUBG Mobile</h3>
             <div class="space-y-4">
                 <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase">2026. Március 15.</p>
-                        <h4 class="text-xl font-title">Cross Contenders Tournament</h4>
-                    </div>
-                    <div class="text-right">
-                        <p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p>
-                    </div>
+                    <div><p class="text-xs text-gray-500 uppercase">2026. Március 15.</p><h4 class="text-xl font-title">Cross Contenders Tournament</h4></div>
+                    <div class="text-right"><p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p></div>
                 </div>
                 <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase">2026. Március 20.</p>
-                        <h4 class="text-xl font-title">PMNC RO</h4>
-                    </div>
-                    <div class="text-right">
-                        <p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p>
-                    </div>
+                    <div><p class="text-xs text-gray-500 uppercase">2026. Március 20.</p><h4 class="text-xl font-title">PMNC RO</h4></div>
+                    <div class="text-right"><p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p></div>
+                </div>
+                <div class="card-blur p-6 rounded-xl flex justify-between items-center">
+                    <div><p class="text-xs text-gray-500 uppercase">2026. Március 20.</p><h4 class="text-xl font-title">PMNC HU</h4></div>
+                    <div class="text-right"><p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p></div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="view-pubg" class="hidden-view py-10 max-w-5xl mx-auto px-6">
-        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 flex items-center gap-2 back-btn-text">← Vissza</button>
+        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 back-btn-text">← Vissza</button>
         <h2 class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">PUBG Mobile Team</h2>
         <div class="flex flex-col gap-4">
             <div class="card-blur p-6 rounded-xl border-l-4 border-yellow-600 flex justify-between items-center">
                 <div><span class="badge bg-yellow-600 text-black">Leader</span><h4 class="text-xl font-title mt-2">Kroniksz (B3N3D3K) - Pixel 8a</h4></div>
+            </div>
+            <div class="card-blur p-6 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
+                <div><span class="badge bg-purple-600 text-white">Coach</span><h4 class="text-xl font-title mt-2">Tímeja</h4></div>
             </div>
             <div class="card-blur p-6 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
                 <div><span class="badge bg-red-600 text-white">Moderátor</span><h4 class="text-xl font-title mt-2">FFR - Galaxy A52 5G</h4></div>
@@ -148,9 +132,12 @@
     </section>
 
     <section id="view-brawl" class="hidden-view py-10 max-w-5xl mx-auto px-6">
-        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 flex items-center gap-2 back-btn-text">← Vissza</button>
+        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 back-btn-text">← Vissza</button>
         <h2 class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">Brawl Stars Team</h2>
         <div class="flex flex-col gap-4">
+            <div class="card-blur p-6 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
+                <div><span class="badge bg-purple-600 text-white">Coach</span><h4 class="text-xl font-title mt-2">Tímeja</h4></div>
+            </div>
             <div class="card-blur p-6 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
                 <div><span class="badge bg-red-600 text-white">Moderátor</span><h4 class="text-xl font-title mt-2">FFR - Galaxy A52 5G</h4></div>
             </div>
@@ -169,26 +156,20 @@
 
     <script>
         function showView(viewId) {
-            ['main', 'pubg', 'brawl', 'events'].forEach(id => {
-                document.getElementById('view-' + id).classList.add('hidden-view');
-            });
+            ['main', 'pubg', 'brawl', 'events'].forEach(id => document.getElementById('view-' + id).classList.add('hidden-view'));
             document.getElementById('view-' + viewId).classList.remove('hidden-view');
             window.scrollTo(0,0);
         }
 
         const translations = {
             hu: {
-                navGames: "Játékok", navEvents: "Események",
-                heroQuote: '"Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."',
-                titleGames: "Játékaink", btnView: "Megtekintés",
-                backBtn: "← Vissza", upcoming: "Következik", result: "Eredmény",
+                navGames: "Játékok", navEvents: "Események", heroQuote: '"Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."',
+                titleGames: "Játékaink", btnView: "Megtekintés", backBtn: "← Vissza", upcoming: "Következik", result: "Eredmény",
                 allEvents: "Összes esemény megtekintése", titleEventsPage: "Események"
             },
             en: {
-                navGames: "Games", navEvents: "Events",
-                heroQuote: '"Where discipline and firepower meet, legends are born."',
-                titleGames: "Our Games", btnView: "View Team",
-                backBtn: "← Back", upcoming: "Upcoming", result: "Result",
+                navGames: "Games", navEvents: "Events", heroQuote: '"Where discipline and firepower meet, legends are born."',
+                titleGames: "Our Games", btnView: "View Team", backBtn: "← Back", upcoming: "Upcoming", result: "Result",
                 allEvents: "View All Events", titleEventsPage: "Events"
             }
         };
@@ -200,12 +181,10 @@
             document.getElementById('title-games').innerText = translations[lang].titleGames;
             document.getElementById('btn-all-events').innerText = translations[lang].allEvents;
             document.getElementById('title-events-page').innerText = translations[lang].titleEventsPage;
-            
             document.querySelectorAll('.btn-view').forEach(el => el.innerText = translations[lang].btnView);
             document.querySelectorAll('.back-btn-text').forEach(el => el.innerText = translations[lang].backBtn);
             document.querySelectorAll('.status-label-upcoming').forEach(el => el.innerText = translations[lang].upcoming);
             document.querySelectorAll('.status-label-result').forEach(el => el.innerText = translations[lang].result);
-
             document.getElementById('btn-hu').classList.toggle('active', lang === 'hu');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
