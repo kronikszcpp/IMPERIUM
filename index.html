@@ -1,191 +1,323 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPERIUM ESPORTS | Official</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: #eeeeee; scroll-behavior: smooth; overflow-x: hidden; }
-        .font-title { font-family: 'Bebas Neue', cursive; }
+        body { 
+            font-family: 'Rajdhani', sans-serif; 
+            background-color: #050507; 
+            color: #f3f4f6; 
+            overflow-x: hidden; 
+        }
+        .font-title { font-family: 'Orbitron', sans-serif; }
+        
+        /* Prémium Arany Gradiens */
         .gold-gradient {
-            background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            background: linear-gradient(135deg, #d4af37 0%, #fff6d1 50%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .card-blur {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
+
+        /* Cyberpunk Rács Háttér */
+        .grid-bg {
+            background-image: linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
-        .card-blur:hover {
-            border-color: #D4AF37;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+
+        /* Sci-Fi Glassmorphism Kártyák */
+        .cyber-card {
+            background: rgba(13, 13, 17, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.03);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
         }
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 246, 209, 0.1), transparent);
+            transition: 0.5s;
+        }
+        .cyber-card:hover::before { left: 100%; }
+        .cyber-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.05);
+        }
+
         .hero-bg {
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.85), #0a0a0a),
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%),
+                        linear-gradient(to bottom, rgba(5, 5, 7, 0.8), #050507),
                         url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070');
             background-size: cover; background-position: center;
         }
-        .lang-btn { cursor: pointer; transition: all 0.3s; opacity: 0.5; }
-        .lang-btn.active { opacity: 1; color: #D4AF37; font-weight: bold; }
-        .badge { font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; }
+
+        .lang-btn { cursor: pointer; transition: all 0.3s; opacity: 0.4; }
+        .lang-btn.active { opacity: 1; color: #d4af37; text-shadow: 0 0 8px rgba(212, 175, 55, 0.6); }
         .hidden-view { display: none; }
-        .status-result { color: #facc15; font-weight: bold; }
+        
+        /* Neon Izzás Gombokhoz */
+        .neon-btn {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+        .neon-btn:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.55);
+        }
     </style>
 </head>
-<body>
+<body class="grid-bg min-h-screen flex flex-col justify-between">
 
-    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto relative z-50">
-        <div class="text-3xl font-title tracking-widest gold-gradient cursor-pointer" onclick="showView('main')">IMPERIUM</div>
-        <div class="flex items-center space-x-6">
-            <div class="space-x-6 hidden md:block uppercase text-xs tracking-widest mr-4">
-                <button onclick="showView('main')" id="nav-games" class="hover:text-yellow-500 transition">Játékok</button>
-                <button onclick="showView('events')" id="nav-events" class="hover:text-yellow-500 transition">Események</button>
+    <nav class="sticky top-0 z-50 bg-[#050507]/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-3xl font-title font-black tracking-widest gold-gradient cursor-pointer" onclick="showView('main')">
+                IMPERIUM
             </div>
-            <div class="flex space-x-2 text-xs">
-                <span id="btn-hu" class="lang-btn active" onclick="setLanguage('hu')">HU</span>
-                <span class="text-gray-600">|</span>
-                <span id="btn-en" class="lang-btn" onclick="setLanguage('en')">EN</span>
+            
+            <div class="hidden md:flex items-center space-x-10 text-sm font-semibold uppercase tracking-widest">
+                <button onclick="showView('main')" id="nav-games" class="hover:text-[#d4af37] transition duration-300">Games</button>
+                <button onclick="showView('events')" id="nav-events" class="hover:text-[#d4af37] transition duration-300">Events</button>
             </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="flex space-x-2 text-xs font-bold bg-white/5 px-3 py-1.5 rounded-md border border-white/10">
+                    <span id="btn-hu" class="lang-btn" onclick="setLanguage('hu')">HU</span>
+                    <span class="text-white/20">|</span>
+                    <span id="btn-en" class="lang-btn active" onclick="setLanguage('en')">EN</span>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" onclick="toggleMobileMenu()">
+                    <svg class="w-6 height-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col mt-4 space-y-3 text-center text-sm uppercase tracking-widest font-bold pb-2">
+            <button onclick="showView('main'); toggleMobileMenu()" id="nav-games-mob" class="text-gray-300 hover:text-[#d4af37] py-2 bg-white/5 rounded">Games</button>
+            <button onclick="showView('events'); toggleMobileMenu()" id="nav-events-mob" class="text-gray-300 hover:text-[#d4af37] py-2 bg-white/5 rounded">Events</button>
         </div>
     </nav>
 
-    <main id="view-main">
-        <header class="hero-bg h-[40vh] flex flex-col justify-center items-center text-center px-4">
-            <h1 class="text-7xl md:text-8xl font-title tracking-tighter mb-4 gold-gradient uppercase">Imperium Esports</h1>
-            <p id="hero-quote" class="text-xl max-w-3xl text-gray-300 italic font-light tracking-wide">
-                "Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."
-            </p>
-            <a href="https://discord.gg/6PqT8dskdp" target="_blank" id="hero-btn" class="mt-8 border-2 border-yellow-600 text-yellow-500 px-10 py-4 font-bold rounded-sm hover:bg-yellow-600 hover:text-black transition-all uppercase tracking-widest">Csatlakozás</a>
-        </header>
-
-        <section class="py-20 max-w-7xl mx-auto px-6 text-center">
-            <h2 id="title-games" class="text-4xl font-title mb-16 tracking-widest underline decoration-yellow-600 underline-offset-8 uppercase">Játékaink</h2>
-            <div class="grid md:grid-cols-2 gap-10 mb-16">
-                <div class="card-blur p-12 rounded-2xl border-2 border-transparent" onclick="showView('pubg')">
-                    <h3 class="text-4xl font-title mb-4 gold-gradient tracking-widest uppercase">PUBG Mobile <br> ACE+</h3>
-                    <p class="text-yellow-600 text-sm font-bold uppercase tracking-widest btn-view">Megtekintés</p>
-                </div>
-                <div class="card-blur p-12 rounded-2xl border-2 border-transparent" onclick="showView('brawl')">
-                    <h3 class="text-4xl font-title mb-4 gold-gradient tracking-widest uppercase">Brawl Stars <br> 100000+ trophies</h3>
-                    <p class="text-yellow-600 text-sm font-bold uppercase tracking-widest btn-view">Megtekintés</p>
+    <main id="view-main" class="fade-in">
+        <header class="hero-bg h-[55vh] flex flex-col justify-center items-center text-center px-4 relative">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent"></div>
+            <div class="relative z-10 max-w-4xl">
+                <h1 class="text-6xl md:text-8xl font-title font-black tracking-tighter mb-4 gold-gradient uppercase animate-pulse">
+                    Imperium Esports
+                </h1>
+                <p id="hero-quote" class="text-lg md:text-2xl text-gray-400 font-medium tracking-wide max-w-2xl mx-auto h-12">
+                    "Where discipline and firepower meet, legends are born."
+                </p>
+                <div class="mt-10">
+                    <a href="https://discord.gg/6PqT8dskdp" target="_blank" id="hero-btn" class="neon-btn bg-gradient-to-r from-[#b38728] to-[#d4af37] text-black px-12 py-4 font-black rounded-sm uppercase tracking-widest transition-all inline-block text-sm">
+                        Join Now
+                    </a>
                 </div>
             </div>
-            <button onclick="showView('events')" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-transparent border-2 border-yellow-600 rounded-full hover:bg-yellow-600 hover:text-black">
-                <span id="btn-all-events" class="uppercase tracking-widest text-sm">Összes esemény megtekintése</span>
+        </header>
+
+        <section class="py-24 max-w-7xl mx-auto px-6 text-center relative z-10">
+            <h2 id="title-games" class="text-4xl md:text-5xl font-title font-bold mb-16 tracking-widest uppercase relative inline-block">
+                Our Games
+                <span class="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-[#d4af37]"></span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64" onclick="showView('pubg')">
+                    <div>
+                        <div class="text-xs font-bold text-[#d4af37] tracking-widest uppercase mb-2">// DIVISION I</div>
+                        <h3 class="text-3xl font-title font-black text-white tracking-wide uppercase">PUBG Mobile</h3>
+                        <p class="text-gray-400 text-sm mt-1">Tier: ACE MASTER+</p>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-white/5 pt-4">
+                        <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Roster & Details</span>
+                        <p class="text-[#d4af37] text-sm font-bold uppercase tracking-widest btn-view">View Team →</p>
+                    </div>
+                </div>
+                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64" onclick="showView('brawl')">
+                    <div>
+                        <div class="text-xs font-bold text-[#d4af37] tracking-widest uppercase mb-2">// DIVISION II</div>
+                        <h3 class="text-3xl font-title font-black text-white tracking-wide uppercase">Brawl Stars</h3>
+                        <p class="text-gray-400 text-sm mt-1">Requirement: 100,000+ Trophies</p>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-white/5 pt-4">
+                        <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Roster & Details</span>
+                        <p class="text-[#d4af37] text-sm font-bold uppercase tracking-widest btn-view">View Team →</p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="showView('events')" class="border border-[#d4af37]/40 hover:border-[#d4af37] text-white px-8 py-3.5 rounded font-bold transition-all duration-300 bg-white/5 hover:bg-[#d4af37] hover:text-black uppercase tracking-widest text-xs">
+                <span id="btn-all-events">View All Events</span>
             </button>
         </section>
     </main>
 
-    <section id="view-events" class="hidden-view py-10 max-w-5xl mx-auto px-6">
-        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 back-btn-text">← Vissza</button>
-        <h2 id="title-events-page" class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">Események</h2>
+    <section id="view-events" class="hidden-view py-16 max-w-4xl mx-auto px-6 fade-in">
+        <button onclick="showView('main')" class="text-gray-400 hover:text-[#d4af37] font-bold mb-8 transition tracking-widest uppercase text-xs flex items-center gap-2 back-btn-text">← Back</button>
+        <h2 id="title-events-page" class="text-5xl font-title font-black mb-12 gold-gradient uppercase tracking-widest text-center">Tournament Ledger</h2>
         
         <div class="mb-12">
-            <h3 class="text-2xl font-title text-yellow-600 mb-6 tracking-widest border-b border-yellow-600/30 pb-2">Brawl Stars</h3>
-            <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                <div><p class="text-xs text-gray-500 uppercase">2026. 03. 7.</p><h4 class="text-xl font-title">Brawl Stars Esport</h4></div>
-                <div class="text-right"><p class="badge bg-yellow-600 text-black mb-1 status-label-result">Eredmény</p><p class="status-result">TOP 500</p></div>
-            </div>
-            <br>
-            <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                <div><p class="text-xs text-gray-500 uppercase">2026. 03. 21.</p><h4 class="text-xl font-title">DEADEND #3</h4></div>
-                <div class="text-right"><p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p></div>
+            <h3 class="text-xl font-title text-[#d4af37] mb-4 tracking-widest uppercase border-b border-white/10 pb-2">// Brawl Stars</h3>
+            <div class="space-y-4">
+                <div class="cyber-card p-5 rounded-lg flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-500 font-mono">2026. 03. 07</p>
+                        <h4 class="text-lg font-bold tracking-wide text-white">Brawl Stars Championship</h4>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded font-bold uppercase tracking-wider status-label-result">Result</span>
+                        <p class="text-emerald-400 font-title font-bold text-lg mt-1">TOP 373</p>
+                    </div>
+                </div>
+                <div class="cyber-card p-5 rounded-lg flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-500 font-mono">2026. 03. 21</p>
+                        <h4 class="text-lg font-bold tracking-wide text-white">DEADEND #3</h4>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded font-bold uppercase tracking-wider status-label-result">Result</span>
+                        <p class="text-emerald-400 font-title font-bold text-lg mt-1">TOP 64</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div>
-            <h3 class="text-2xl font-title text-yellow-600 mb-6 tracking-widest border-b border-yellow-600/30 pb-2">PUBG Mobile</h3>
-            <div class="space-y-4">
-                <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                    <div><p class="text-xs text-gray-500 uppercase">2026. 03. 15.</p><h4 class="text-xl font-title">Cross Contenders Tournament</h4></div>
-                    <div class="text-right"><p class="badge bg-yellow-600 text-black mb-1 status-label-result">Eredmény</p><p class="status-result">TOP 25</p></div>
+            <h3 class="text-xl font-title text-[#d4af37] mb-4 tracking-widest uppercase border-b border-white/10 pb-2">// PUBG Mobile</h3>
+            <div class="cyber-card p-5 rounded-lg flex justify-between items-center">
+                <div>
+                    <p class="text-xs text-gray-500 font-mono">2026. 03. 15</p>
+                    <h4 class="text-lg font-bold tracking-wide text-white">Cross Contenders Tournament</h4>
                 </div>
-                <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                    <div><p class="text-xs text-gray-500 uppercase">2026. 03. 20.</p><h4 class="text-xl font-title">PMNC RO</h4></div>
-                    <div class="text-right"><p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p></div>
-                </div>
-                <div class="card-blur p-6 rounded-xl flex justify-between items-center">
-                    <div><p class="text-xs text-gray-500 uppercase">2026. 03. 20.</p><h4 class="text-xl font-title">PMNC HU</h4></div>
-                    <div class="text-right"><p class="badge bg-blue-600 text-white mb-1 status-label-upcoming">Következik</p></div>
+                <div class="text-right">
+                    <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded font-bold uppercase tracking-wider status-label-result">Result</span>
+                    <p class="text-emerald-400 font-title font-bold text-lg mt-1">TOP 25</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="view-pubg" class="hidden-view py-10 max-w-5xl mx-auto px-6">
-        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 back-btn-text">← Vissza</button>
-        <h2 class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">PUBG Mobile Team</h2>
-        <div class="flex flex-col gap-4">
-            <div class="card-blur p-6 rounded-xl border-l-4 border-yellow-600 flex justify-between items-center">
-                <div><span class="badge bg-yellow-600 text-black">Leader</span><h4 class="text-xl font-title mt-2">Kroniksz (IMP x B3N3D3K) - Pixel 8a</h4></div>
+    <section id="view-pubg" class="hidden-view py-16 max-w-3xl mx-auto px-6 fade-in">
+        <button onclick="showView('main')" class="text-gray-400 hover:text-[#d4af37] font-bold mb-8 transition tracking-widest uppercase text-xs back-btn-text">← Back</button>
+        <h2 class="text-5xl font-title font-black mb-12 gold-gradient uppercase tracking-widest text-center">PUBG Mobile Squad</h2>
+        
+        <div class="space-y-4">
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-[#d4af37] flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-[#d4af37]/20 text-[#d4af37] px-2 py-0.5 rounded font-black uppercase tracking-wider">Leader</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">Kroniksz <span class="text-sm font-normal text-gray-400">(IMP x B3N3D3K)</span></h4>
+                </div>
+                <div class="text-right text-xs text-gray-500 font-mono">Pixel 8a</div>
             </div>
-            <div class="card-blur p-6 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
-                <div><span class="badge bg-purple-600 text-white">Coach</span><h4 class="text-xl font-title mt-2">Tímeja</h4></div>
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Coach</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">Tímeja</h4>
+                </div>
             </div>
-            <div class="card-blur p-6 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
-                <div><span class="badge bg-red-600 text-white">Moderátor</span><h4 class="text-xl font-title mt-2">FFR - Galaxy A52 5G</h4></div>
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Moderator</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">FFR</h4>
+                </div>
+                <div class="text-right text-xs text-gray-500 font-mono">OnePlus Nord 5 5G</div>
             </div>
-            <div class="card-blur p-6 rounded-xl border-l-4 border-blue-500 flex justify-between items-center">
-                <div><span class="badge bg-blue-600 text-white">Social Manager</span><h4 class="text-xl font-title mt-2">IMP x nagyakoska - Galaxy S22</h4></div>
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-blue-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Social Manager</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">IMP x nagyakoska</h4>
+                </div>
+                <div class="text-right text-xs text-gray-500 font-mono">Galaxy S22</div>
             </div>
-            <div class="card-blur p-6 rounded-xl border-l-4 border-pink-500 flex justify-between items-center">
-                <div><span class="badge bg-pink-600 text-white">Player</span><h4 class="text-xl font-title mt-2">IMP x Łęvøxÿ</h4></div>
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-pink-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-pink-500/20 text-pink-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Player</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">IMP x Łęvøxÿ</h4>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="view-brawl" class="hidden-view py-10 max-w-5xl mx-auto px-6">
-        <button onclick="showView('main')" class="text-yellow-600 font-bold mb-8 back-btn-text">← Vissza</button>
-        <h2 class="text-5xl font-title mb-12 gold-gradient uppercase tracking-widest text-center">Brawl Stars Team</h2>
-        <div class="flex flex-col gap-4">
-            <div class="card-blur p-6 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
-                <div><span class="badge bg-purple-600 text-white">Coach</span><h4 class="text-xl font-title mt-2">Tímeja</h4></div>
+    <section id="view-brawl" class="hidden-view py-16 max-w-3xl mx-auto px-6 fade-in">
+        <button onclick="showView('main')" class="text-gray-400 hover:text-[#d4af37] font-bold mb-8 transition tracking-widest uppercase text-xs back-btn-text">← Back</button>
+        <h2 class="text-5xl font-title font-black mb-12 gold-gradient uppercase tracking-widest text-center">Brawl Stars Squad</h2>
+        
+        <div class="space-y-4">
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Coach</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">Tímeja</h4>
+                </div>
             </div>
-            <div class="card-blur p-6 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
-                <div><span class="badge bg-red-600 text-white">Moderátor</span><h4 class="text-xl font-title mt-2">IMP | FFR - Galaxy A52 5G</h4></div>
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Moderator</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">IMP | FFR</h4>
+                </div>
+                <div class="text-right text-xs text-gray-500 font-mono">OnePlus Nord 5 5G</div>
             </div>
-            <div class="card-blur p-6 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
-                <div><span class="badge bg-red-600 text-white">Moderátor</span><h4 class="text-xl font-title mt-2">IMP | Lonino - Galaxy S23 Ultra</h4></div>
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Moderator</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">IMP | lonino</h4>
+                </div>
+                <div class="text-right text-xs text-gray-500 font-mono">Galaxy S23 Ultra</div>
             </div>
-            <div class="card-blur p-6 rounded-xl border-l-4 border-green-500 flex justify-between items-center">
-                <div><span class="badge bg-green-600 text-white">Technical support</span><h4 class="text-xl font-title mt-2">IMP | BLightAdee - Pixel 10 Pro</h4></div>
+            <div class="cyber-card p-5 rounded-xl border-l-4 border-emerald-500 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Technical Support</span>
+                    <h4 class="text-xl font-bold mt-1 text-white">IMP | BLightAdee</h4>
+                </div>
+                <div class="text-right text-xs text-gray-500 font-mono text-right max-w-[180px] md:max-w-none truncate">Pixel 10 Pro / iPhone 14 Pro Max</div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 text-center">
-        <a href="https://discord.gg/6PqT8dskdp" target="_blank" class="bg-yellow-600 text-black px-12 py-3 rounded-full font-bold hover:bg-yellow-400 transition uppercase tracking-widest text-sm">Discord</a>
+    <footer class="py-12 border-t border-white/5 bg-[#0d0d11]/40 backdrop-blur-sm text-center">
+        <p class="text-xs text-gray-600 uppercase tracking-widest mb-4">© 2026 Imperium Esports. All rights reserved.</p>
+        <a href="https://discord.gg/6PqT8dskdp" target="_blank" class="neon-btn inline-block bg-[#d4af37] text-black px-10 py-2.5 rounded-full font-bold hover:bg-[#fff6d1] transition duration-300 uppercase tracking-widest text-xs">
+            Official Discord
+        </a>
     </footer>
 
     <script>
         function showView(viewId) {
             ['main', 'pubg', 'brawl', 'events'].forEach(id => document.getElementById('view-' + id).classList.add('hidden-view'));
             document.getElementById('view-' + viewId).classList.remove('hidden-view');
-            window.scrollTo(0,0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
 
         const translations = {
             hu: {
                 navGames: "Játékok", navEvents: "Események", heroQuote: '"Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."',
-                heroBtn: "Csatlakozás", titleGames: "Játékaink", btnView: "Megtekintés", backBtn: "← Vissza", upcoming: "Következik", result: "Eredmény",
-                allEvents: "Összes esemény megtekintése", titleEventsPage: "Események"
+                heroBtn: "Csatlakozás", titleGames: "Játékaink", btnView: "Megtekintés →", backBtn: "← Vissza", upcoming: "Következik", result: "Eredmény",
+                allEvents: "Összes esemény megtekintése", titleEventsPage: "Versenyeredmények"
             },
             en: {
                 navGames: "Games", navEvents: "Events", heroQuote: '"Where discipline and firepower meet, legends are born."',
-                heroBtn: "Join Now", titleGames: "Our Games", btnView: "View Team", backBtn: "← Back", upcoming: "Upcoming", result: "Result",
-                allEvents: "View All Events", titleEventsPage: "Events"
+                heroBtn: "Join Now", titleGames: "Our Games", btnView: "View Team →", backBtn: "← Back", upcoming: "Upcoming", result: "Result",
+                allEvents: "View All Events", titleEventsPage: "Tournament Ledger"
             }
         };
 
         function setLanguage(lang) {
             document.getElementById('nav-games').innerText = translations[lang].navGames;
+            document.getElementById('nav-games-mob').innerText = translations[lang].navGames;
             document.getElementById('nav-events').innerText = translations[lang].navEvents;
+            document.getElementById('nav-events-mob').innerText = translations[lang].navEvents;
             document.getElementById('hero-quote').innerText = translations[lang].heroQuote;
             document.getElementById('hero-btn').innerText = translations[lang].heroBtn;
             document.getElementById('title-games').innerText = translations[lang].titleGames;
@@ -193,11 +325,13 @@
             document.getElementById('title-events-page').innerText = translations[lang].titleEventsPage;
             document.querySelectorAll('.btn-view').forEach(el => el.innerText = translations[lang].btnView);
             document.querySelectorAll('.back-btn-text').forEach(el => el.innerText = translations[lang].backBtn);
-            document.querySelectorAll('.status-label-upcoming').forEach(el => el.innerText = translations[lang].upcoming);
             document.querySelectorAll('.status-label-result').forEach(el => el.innerText = translations[lang].result);
             document.getElementById('btn-hu').classList.toggle('active', lang === 'hu');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
+
+        // Alapértelmezett indítás angolul
+        setLanguage('en');
     </script>
 </body>
 </html>
