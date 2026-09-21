@@ -3,7 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIUM ESPORTS | Official</title>
+    <title>IMPERIUM ESPORTS | Official Esports Organization</title>
+    
+    <!-- Alapvető SEO Tagek -->
+    <meta name="description" content="Official website of Imperium Esports. Competitive PUBG Mobile and Brawl Stars divisions, rosters, tournament results, and community discord.">
+    <meta name="keywords" content="Imperium Esports, PUBG Mobile team, Brawl Stars clan, mobile esports, competitive gaming, tournament ledger">
+    <meta name="author" content="Imperium Esports">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Search Console ellenőrző címke (ide másold be a kódot a Search Console-ból) -->
+    <!-- <meta name="google-site-verification" content="ITT_A_TE_KÓDOD" /> -->
+
+    <!-- Open Graph / Közösségi média előnézet (Discord, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IMPERIUM ESPORTS | Official">
+    <meta property="og:description" content="Where discipline and firepower meet, legends are born. Competitive PUBG Mobile & Brawl Stars organization.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IMPERIUM ESPORTS | Official">
+    <meta name="twitter:description" content="Where discipline and firepower meet, legends are born. Competitive PUBG Mobile & Brawl Stars organization.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Strukturált adat a keresőmotoroknak (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsTeam",
+      "name": "Imperium Esports",
+      "sport": "Esports",
+      "description": "Competitive mobile gaming organization competing in PUBG Mobile and Brawl Stars.",
+      "sameAs": [
+        "https://discord.gg/6PqT8dskdp"
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -94,7 +130,7 @@
                     <span class="text-white/20">|</span>
                     <span id="btn-en" class="lang-btn active" onclick="setLanguage('en')">EN</span>
                 </div>
-                <button class="md:hidden text-white focus:outline-none" onclick="toggleMobileMenu()">
+                <button class="md:hidden text-white focus:outline-none" onclick="toggleMobileMenu()" aria-label="Open Menu">
                     <svg class="w-6 height-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
@@ -116,7 +152,7 @@
                     "Where discipline and firepower meet, legends are born."
                 </p>
                 <div class="mt-10">
-                    <a href="https://discord.gg/6PqT8dskdp" target="_blank" id="hero-btn" class="neon-btn bg-gradient-to-r from-[#b38728] to-[#d4af37] text-black px-12 py-4 font-black rounded-sm uppercase tracking-widest transition-all inline-block text-sm">
+                    <a href="https://discord.gg/6PqT8dskdp" target="_blank" rel="noopener noreferrer" id="hero-btn" class="neon-btn bg-gradient-to-r from-[#b38728] to-[#d4af37] text-black px-12 py-4 font-black rounded-sm uppercase tracking-widest transition-all inline-block text-sm">
                         Join Now
                     </a>
                 </div>
@@ -130,7 +166,7 @@
             </h2>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64" onclick="showView('pubg')">
+                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64 cursor-pointer" onclick="showView('pubg')">
                     <div>
                         <div class="text-xs font-bold text-[#d4af37] tracking-widest uppercase mb-2">// DIVISION I</div>
                         <h3 class="text-3xl font-title font-black text-white tracking-wide uppercase">PUBG Mobile</h3>
@@ -141,7 +177,7 @@
                         <p class="text-[#d4af37] text-sm font-bold uppercase tracking-widest btn-view">View Team →</p>
                     </div>
                 </div>
-                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64" onclick="showView('brawl')">
+                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64 cursor-pointer" onclick="showView('brawl')">
                     <div>
                         <div class="text-xs font-bold text-[#d4af37] tracking-widest uppercase mb-2">// DIVISION II</div>
                         <h3 class="text-3xl font-title font-black text-white tracking-wide uppercase">Brawl Stars</h3>
@@ -282,21 +318,25 @@
     </section>
 
     <footer class="py-12 border-t border-white/5 bg-[#0d0d11]/40 backdrop-blur-sm text-center">
-        <a href="https://discord.gg/6PqT8dskdp" target="_blank" class="neon-btn inline-block bg-[#d4af37] text-black px-10 py-2.5 rounded-full font-bold hover:bg-[#fff6d1] transition duration-300 uppercase tracking-widest text-xs">
+        <a href="https://discord.gg/6PqT8dskdp" target="_blank" rel="noopener noreferrer" class="neon-btn inline-block bg-[#d4af37] text-black px-10 py-2.5 rounded-full font-bold hover:bg-[#fff6d1] transition duration-300 uppercase tracking-widest text-xs">
             Official Discord
         </a>
     </footer>
 
     <script>
         function showView(viewId) {
-            ['main', 'pubg', 'brawl', 'events'].forEach(id => document.getElementById('view-' + id).classList.add('hidden-view'));
-            document.getElementById('view-' + viewId).classList.remove('hidden-view');
+            ['main', 'pubg', 'brawl', 'events'].forEach(id => {
+                const el = document.getElementById('view-' + id);
+                if (el) el.classList.add('hidden-view');
+            });
+            const targetEl = document.getElementById('view-' + viewId);
+            if (targetEl) targetEl.classList.remove('hidden-view');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if (menu) menu.classList.toggle('hidden');
         }
 
         const translations = {
