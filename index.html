@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIUM ESPORTS | Official Esports Organization</title>
+    <title>IMPERIUM ESPORTS | Premier Competitive Organization</title>
     
-    <!-- Alapvető SEO Tagek -->
-    <meta name="description" content="Official website of Imperium Esports. Competitive PUBG Mobile and Brawl Stars divisions, rosters, tournament results, and community discord.">
+    <!-- Essential SEO Tags -->
+    <meta name="description" content="Official website of Imperium Esports. Competitive PUBG Mobile and Brawl Stars divisions, rosters, tournament results, and community.">
     <meta name="keywords" content="Imperium Esports, PUBG Mobile team, Brawl Stars clan, mobile esports, competitive gaming, tournament ledger">
     <meta name="author" content="Imperium Esports">
     <meta name="robots" content="index, follow">
 
-    <!-- Google Search Console ellenőrző címke -->
+    <!-- Google Search Console verification -->
     <meta name="google-site-verification" content="xINh9IDf8Y0u8yru-E7fuIs7BYNDb6W32ZOtI9Q0nXo" />
 
-    <!-- Open Graph / Közösségi média előnézet (Discord, Facebook) -->
+    <!-- Open Graph / Social Media Preview -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="IMPERIUM ESPORTS | Official">
     <meta property="og:description" content="Where discipline and firepower meet, legends are born. Competitive PUBG Mobile & Brawl Stars organization.">
@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="Where discipline and firepower meet, legends are born. Competitive PUBG Mobile & Brawl Stars organization.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200">
 
-    <!-- Strukturált adat a keresőmotoroknak (Schema.org) -->
+    <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,336 +41,947 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        body { 
-            font-family: 'Rajdhani', sans-serif; 
-            background-color: #050507; 
-            color: #f3f4f6; 
-            overflow-x: hidden; 
-        }
-        .font-title { font-family: 'Orbitron', sans-serif; }
-        
-        /* Prémium Arany Gradiens */
-        .gold-gradient {
-            background: linear-gradient(135deg, #d4af37 0%, #fff6d1 50%, #aa771c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        :root {
+            --brand-gold: #D6A84E;
+            --brand-gold-muted: #8E7032;
+            --brand-dark: #070709;
+            --brand-card: #0F1015;
+            --brand-border: #1E2029;
+            --brand-border-hover: #2F3342;
         }
 
-        /* Cyberpunk Rács Háttér */
-        .grid-bg {
-            background-image: linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--brand-dark);
+            color: #E2E4E9;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
         }
 
-        /* Sci-Fi Glassmorphism Kártyák */
-        .cyber-card {
-            background: rgba(13, 13, 17, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.03);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .cyber-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 246, 209, 0.1), transparent);
-            transition: 0.5s;
-        }
-        .cyber-card:hover::before { left: 100%; }
-        .cyber-card:hover {
-            border-color: #d4af37;
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.05);
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.03em;
         }
 
-        .hero-bg {
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%),
-                        linear-gradient(to bottom, rgba(5, 5, 7, 0.8), #050507),
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070');
-            background-size: cover; background-position: center;
+        .font-mono-tag {
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .lang-btn { cursor: pointer; transition: all 0.3s; opacity: 0.4; }
-        .lang-btn.active { opacity: 1; color: #d4af37; text-shadow: 0 0 8px rgba(212, 175, 55, 0.6); }
-        .hidden-view { display: none; }
-        
-        /* Neon Izzás Gombokhoz */
-        .neon-btn {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-            transition: all 0.3s ease;
+        /* Subtle luxury subtle gradient mask */
+        .ambient-glow {
+            background: radial-gradient(circle at 50% -10%, rgba(214, 168, 78, 0.08) 0%, rgba(15, 16, 21, 0) 70%);
         }
-        .neon-btn:hover {
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.55);
+
+        /* Minimal micro-dot matrix pattern */
+        .subtle-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        /* Interactive card styling */
+        .pro-card {
+            background: rgba(15, 16, 21, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--brand-border);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pro-card:hover {
+            border-color: rgba(214, 168, 78, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        .hidden-view {
+            display: none !important;
+        }
+
+        /* Clean gold accent */
+        .text-gold {
+            color: var(--brand-gold);
+        }
+
+        .border-gold {
+            border-color: var(--brand-gold);
+        }
+
+        .bg-gold {
+            background-color: var(--brand-gold);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
-<body class="grid-bg min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between subtle-grid relative selection:bg-amber-400/20 selection:text-amber-200">
 
-    <nav class="sticky top-0 z-50 bg-[#050507]/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-3xl font-title font-black tracking-widest gold-gradient cursor-pointer" onclick="showView('main')">
-                IMPERIUM
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-10 text-sm font-semibold uppercase tracking-widest">
-                <button onclick="showView('main')" id="nav-games" class="hover:text-[#d4af37] transition duration-300">Games</button>
-                <button onclick="showView('events')" id="nav-events" class="hover:text-[#d4af37] transition duration-300">Events</button>
-            </div>
+    <!-- Ambient backlight effect -->
+    <div class="ambient-glow fixed inset-0 pointer-events-none z-0"></div>
 
-            <div class="flex items-center space-x-4">
-                <div class="flex space-x-2 text-xs font-bold bg-white/5 px-3 py-1.5 rounded-md border border-white/10">
-                    <span id="btn-hu" class="lang-btn" onclick="setLanguage('hu')">HU</span>
-                    <span class="text-white/20">|</span>
-                    <span id="btn-en" class="lang-btn active" onclick="setLanguage('en')">EN</span>
+    <header class="sticky top-0 z-50 border-b border-white/[0.07] bg-[#070709]/85 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer group" onclick="showView('main')">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 flex items-center justify-center font-bold text-black font-display text-sm tracking-tighter shadow-sm group-hover:scale-105 transition-transform">
+                    IMP
                 </div>
-                <button class="md:hidden text-white focus:outline-none" onclick="toggleMobileMenu()" aria-label="Open Menu">
-                    <svg class="w-6 height-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-lg tracking-wider text-white group-hover:text-amber-400 transition-colors uppercase">
+                        IMPERIUM
+                    </span>
+                    <span class="text-[9px] font-mono-tag tracking-widest text-neutral-400 uppercase -mt-1 font-semibold">
+                        Esports Org
+                    </span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Items -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-neutral-300">
+                <button onclick="showView('main')" id="nav-games" class="hover:text-white transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-amber-400">
+                    Divisions
+                </button>
+                <button onclick="showView('events')" id="nav-events" class="hover:text-white transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-amber-400">
+                    Tournaments
+                </button>
+                <a href="https://discord.gg/6PqT8dskdp" id="nav-community" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-amber-400">
+                    Community
+                </a>
+            </nav>
+
+            <!-- Right Controls: Language & Discord CTA -->
+            <div class="flex items-center space-x-4">
+                <!-- Lang Switcher: EN, HU, RO -->
+                <div class="flex items-center bg-[#13141b] rounded-full p-1 border border-white/[0.08] text-[11px] font-mono-tag font-semibold">
+                    <button id="btn-en" onclick="setLanguage('en')" class="px-2.5 py-0.5 rounded-full transition-all text-neutral-400 hover:text-white" aria-label="Switch to English">EN</button>
+                    <button id="btn-hu" onclick="setLanguage('hu')" class="px-2.5 py-0.5 rounded-full transition-all text-white bg-white/10" aria-label="Váltás magyar nyelvre">HU</button>
+                    <button id="btn-ro" onclick="setLanguage('ro')" class="px-2.5 py-0.5 rounded-full transition-all text-neutral-400 hover:text-white" aria-label="Comută pe limba română">RO</button>
+                </div>
+
+                <!-- Fast Join CTA -->
+                <a href="https://discord.gg/6PqT8dskdp" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-2 bg-white text-black hover:bg-amber-400 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded transition-all duration-200">
+                    <span>Discord</span>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-neutral-300 hover:text-white rounded focus:outline-none" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden flex flex-col mt-4 space-y-3 text-center text-sm uppercase tracking-widest font-bold pb-2">
-            <button onclick="showView('main'); toggleMobileMenu()" id="nav-games-mob" class="text-gray-300 hover:text-[#d4af37] py-2 bg-white/5 rounded">Games</button>
-            <button onclick="showView('events'); toggleMobileMenu()" id="nav-events-mob" class="text-gray-300 hover:text-[#d4af37] py-2 bg-white/5 rounded">Events</button>
-        </div>
-    </nav>
 
-    <main id="view-main" class="fade-in">
-        <header class="hero-bg h-[55vh] flex flex-col justify-center items-center text-center px-4 relative">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent"></div>
-            <div class="relative z-10 max-w-4xl">
-                <h1 class="text-6xl md:text-8xl font-title font-black tracking-tighter mb-4 gold-gradient uppercase animate-pulse">
-                    Imperium Esports
-                </h1>
-                <p id="hero-quote" class="text-lg md:text-2xl text-gray-400 font-medium tracking-wide max-w-2xl mx-auto h-12">
-                    "Where discipline and firepower meet, legends are born."
-                </p>
-                <div class="mt-10">
-                    <a href="https://discord.gg/6PqT8dskdp" target="_blank" rel="noopener noreferrer" id="hero-btn" class="neon-btn bg-gradient-to-r from-[#b38728] to-[#d4af37] text-black px-12 py-4 font-black rounded-sm uppercase tracking-widest transition-all inline-block text-sm">
-                        Join Now
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <section class="py-24 max-w-7xl mx-auto px-6 text-center relative z-10">
-            <h2 id="title-games" class="text-4xl md:text-5xl font-title font-bold mb-16 tracking-widest uppercase relative inline-block">
-                Our Games
-                <span class="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-[#d4af37]"></span>
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64 cursor-pointer" onclick="showView('pubg')">
-                    <div>
-                        <div class="text-xs font-bold text-[#d4af37] tracking-widest uppercase mb-2">// DIVISION I</div>
-                        <h3 class="text-3xl font-title font-black text-white tracking-wide uppercase">PUBG Mobile</h3>
-                        <p class="text-gray-400 text-sm mt-1">Tier: ACE MASTER+</p>
-                    </div>
-                    <div class="flex justify-between items-center border-t border-white/5 pt-4">
-                        <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Roster & Details</span>
-                        <p class="text-[#d4af37] text-sm font-bold uppercase tracking-widest btn-view">View Team →</p>
-                    </div>
-                </div>
-                <div class="cyber-card p-10 rounded-xl text-left flex flex-col justify-between h-64 cursor-pointer" onclick="showView('brawl')">
-                    <div>
-                        <div class="text-xs font-bold text-[#d4af37] tracking-widest uppercase mb-2">// DIVISION II</div>
-                        <h3 class="text-3xl font-title font-black text-white tracking-wide uppercase">Brawl Stars</h3>
-                        <p class="text-gray-400 text-sm mt-1">Requirement: 100,000+ Trophies</p>
-                    </div>
-                    <div class="flex justify-between items-center border-t border-white/5 pt-4">
-                        <span class="text-xs uppercase font-bold tracking-widest text-gray-500">Roster & Details</span>
-                        <p class="text-[#d4af37] text-sm font-bold uppercase tracking-widest btn-view">View Team →</p>
-                    </div>
-                </div>
-            </div>
-
-            <button onclick="showView('events')" class="border border-[#d4af37]/40 hover:border-[#d4af37] text-white px-8 py-3.5 rounded font-bold transition-all duration-300 bg-white/5 hover:bg-[#d4af37] hover:text-black uppercase tracking-widest text-xs">
-                <span id="btn-all-events">View All Events</span>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.06] bg-[#090A0F] px-6 py-4 space-y-3 font-semibold text-xs tracking-wider uppercase">
+            <button onclick="showView('main'); toggleMobileMenu()" id="mobile-nav-games" class="block w-full text-left py-2 text-neutral-300 hover:text-amber-400">
+                Divisions
             </button>
+            <button onclick="showView('events'); toggleMobileMenu()" id="mobile-nav-events" class="block w-full text-left py-2 text-neutral-300 hover:text-amber-400">
+                Tournaments
+            </button>
+            <a href="https://discord.gg/6PqT8dskdp" target="_blank" id="mobile-nav-discord" class="block w-full text-left py-2 text-amber-400 font-bold">
+                Join Discord →
+            </a>
+        </div>
+    </header>
+
+    <main class="relative z-10 flex-grow">
+        <!-- View: Main / Home -->
+        <section id="view-main" class="fade-in">
+            <!-- Hero Header -->
+            <div class="relative border-b border-white/[0.07] overflow-hidden pt-20 pb-20 lg:pt-28 lg:pb-28">
+                <div class="max-w-7xl mx-auto px-6 relative z-10">
+                    <div class="max-w-3xl">
+                        <!-- Top status pill -->
+                        <div class="inline-flex items-center space-x-2.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] mb-6">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            <span class="text-[11px] font-mono-tag uppercase tracking-widest text-neutral-300" id="hero-status">Aktív Szezon 2026</span>
+                        </div>
+
+                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white uppercase leading-[0.95]">
+                            IMPERIUM<br>
+                            <span class="text-neutral-500 hover:text-neutral-400 transition-colors">ESPORTS</span>
+                        </h1>
+
+                        <p id="hero-quote" class="mt-8 text-lg md:text-xl text-neutral-400 max-w-xl font-normal leading-relaxed">
+                            „Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák.”
+                        </p>
+
+                        <div class="mt-10 flex flex-wrap items-center gap-4">
+                            <a href="https://discord.gg/6PqT8dskdp" target="_blank" rel="noopener noreferrer" id="hero-btn" class="bg-amber-400 hover:bg-amber-300 text-black px-7 py-3.5 rounded text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center space-x-2 shadow-sm">
+                                <span>Csatlakozás</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                            <button onclick="showView('events')" class="border border-white/15 hover:border-white/40 text-neutral-200 px-6 py-3.5 rounded text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white/[0.02]">
+                                <span id="hero-secondary-btn">Versenyeredmények</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subtle stats row -->
+                <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-6 text-neutral-400 font-mono-tag text-xs">
+                    <div>
+                        <div class="text-white text-xl font-bold font-display">2</div>
+                        <div class="text-neutral-400 uppercase text-[10px] tracking-wider mt-0.5" id="stat-divisions">Aktív Divízió</div>
+                    </div>
+                    <div>
+                        <div class="text-white text-xl font-bold font-display">100K+</div>
+                        <div class="text-neutral-400 uppercase text-[10px] tracking-wider mt-0.5" id="stat-req">Trófea</div>
+                    </div>
+                    <div>
+                        <div class="text-white text-xl font-bold font-display">EU / RO</div>
+                        <div class="text-neutral-400 uppercase text-[10px] tracking-wider mt-0.5" id="stat-region">Régió</div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="max-w-7xl mx-auto px-6 py-20">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-amber-400 font-mono-tag text-xs tracking-widest uppercase font-semibold" id="section-roster-tag">Csapatok</span>
+                        <h2 id="title-games" class="text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-tight mt-1">
+                            Versenyágak
+                        </h2>
+                    </div>
+                    <p id="section-roster-desc" class="text-neutral-400 text-sm max-w-sm mt-3 md:mt-0 font-normal">
+                        Válassz divíziót a csapatfelállások, a versenyeszközök és a játékosprofilok megtekintéséhez.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Division 1: PUBG Mobile -->
+                    <div class="pro-card rounded-xl p-8 flex flex-col justify-between h-80 group cursor-pointer" onclick="showView('pubg')">
+                        <div>
+                            <div class="flex items-center justify-between text-neutral-400 mb-6">
+                                <span class="font-mono-tag text-[11px] uppercase tracking-widest text-amber-400/90 font-bold" id="card-pubg-div">1. Divízió</span>
+                                <span class="text-xs bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded font-mono-tag">ACE MASTER+</span>
+                            </div>
+                            <h3 class="text-3xl font-display font-extrabold text-white tracking-tight group-hover:text-amber-400 transition-colors uppercase">
+                                PUBG Mobile
+                            </h3>
+                            <p id="card-pubg-desc" class="text-neutral-400 text-sm mt-3 leading-relaxed">
+                                Taktikai battle royale alakulat, amely a zónairányításra, a gyors rotációkra és a végjáték utility-kihasználására összpontosít.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-white/[0.07] flex items-center justify-between">
+                            <span class="text-xs font-mono-tag text-neutral-400 uppercase" id="card-pubg-count">4 Regisztrált Tag</span>
+                            <span class="text-xs font-bold text-white group-hover:text-amber-400 flex items-center space-x-1 uppercase tracking-wider btn-view">
+                                Csapat megtekintése →
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Division 2: Brawl Stars -->
+                    <div class="pro-card rounded-xl p-8 flex flex-col justify-between h-80 group cursor-pointer" onclick="showView('brawl')">
+                        <div>
+                            <div class="flex items-center justify-between text-neutral-400 mb-6">
+                                <span class="font-mono-tag text-[11px] uppercase tracking-widest text-amber-400/90 font-bold" id="card-brawl-div">2. Divízió</span>
+                                <span class="text-xs bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded font-mono-tag" id="card-brawl-badge">100 000+ TRÓFEA</span>
+                            </div>
+                            <h3 class="text-3xl font-display font-extrabold text-white tracking-tight group-hover:text-amber-400 transition-colors uppercase">
+                                Brawl Stars
+                            </h3>
+                            <p id="card-brawl-desc" class="text-neutral-400 text-sm mt-3 leading-relaxed">
+                                Magas szintű ladder és championship klán precíz draft koordinációval és magas szintű mechanikai mikropozicionálással.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-white/[0.07] flex items-center justify-between">
+                            <span class="text-xs font-mono-tag text-neutral-400 uppercase" id="card-brawl-count">4 Fő Vezetőség & Játékos</span>
+                            <span class="text-xs font-bold text-white group-hover:text-amber-400 flex items-center space-x-1 uppercase tracking-wider btn-view">
+                                Csapat megtekintése →
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events preview banner -->
+                <div class="mt-8 pro-card rounded-xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-dashed">
+                    <div>
+                        <div class="font-mono-tag text-[11px] text-neutral-400 uppercase tracking-widest" id="banner-events-tag">Verseny Történet</div>
+                        <h4 class="text-xl font-display font-bold text-white mt-1" id="banner-events-title">Hivatalos Versenykönyv</h4>
+                        <p class="text-neutral-400 text-xs mt-1" id="banner-events-desc">Cross Contenders, Brawl Stars Bajnokság és közösségi összecsapások.</p>
+                    </div>
+                    <button onclick="showView('events')" class="border border-white/20 hover:border-white px-5 py-2.5 rounded text-xs font-semibold text-white uppercase tracking-wider transition-colors shrink-0">
+                        <span id="btn-all-events">Összes Esemény Megtekintése</span>
+                    </button>
+                </div>
+            </section>
+        </section>
+
+        <!-- View: PUBG Mobile Squad -->
+        <section id="view-pubg" class="hidden-view max-w-4xl mx-auto px-6 py-16 fade-in">
+            <button onclick="showView('main')" class="text-xs font-mono-tag uppercase tracking-widest text-neutral-400 hover:text-amber-400 transition-colors flex items-center space-x-2 mb-10 back-btn-text">
+                ← Vissza a Divíziókhoz
+            </button>
+
+            <div class="border-b border-white/[0.08] pb-6 mb-10">
+                <span class="font-mono-tag text-xs uppercase tracking-widest text-amber-400" id="pubg-view-tag">1. Divízió Keret</span>
+                <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight uppercase mt-1" id="pubg-view-title">
+                    PUBG Mobile Csapat
+                </h2>
+            </div>
+
+            <div class="space-y-3">
+                <!-- Kroniksz -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-amber-400/50">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-amber-400/10 text-amber-300 border border-amber-400/30 role-badge" data-role="leader">
+                            Csapatvezető
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">IMP x B3N3D3K</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag">Kroniksz</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400">Pixel 8a</span>
+                    </div>
+                </div>
+
+                <!-- Tímeja -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-purple-400/40">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-purple-500/10 text-purple-300 border border-purple-500/30 role-badge" data-role="coach">
+                            Edző
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">Tímeja</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag" id="pubg-role-desc-timeja"></p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400" id="pubg-device-timeja">Vezetőség</span>
+                    </div>
+                </div>
+
+                <!-- FFR -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-rose-400/40">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-rose-500/10 text-rose-300 border border-rose-500/30 role-badge" data-role="mod">
+                            Moderátor
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">FFR</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag" id="pubg-role-desc-ffr">/p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400">OnePlus Nord 5 5G</span>
+                    </div>
+                </div>
+
+                <!-- IMP x nagyakoska -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-sky-400/40">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-sky-500/10 text-sky-300 border border-sky-500/30 role-badge" data-role="social">
+                            Közösségi Menedzser
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">IMP x nagyakoska</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag" id="pubg-role-desc-akos"></p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400">Galaxy S22</span>
+                    </div>
+                </di>
+            </div>
+        </section>
+
+        <!-- View: Brawl Stars Squad -->
+        <section id="view-brawl" class="hidden-view max-w-4xl mx-auto px-6 py-16 fade-in">
+            <button onclick="showView('main')" class="text-xs font-mono-tag uppercase tracking-widest text-neutral-400 hover:text-amber-400 transition-colors flex items-center space-x-2 mb-10 back-btn-text">
+                ← Vissza a Divíziókhoz
+            </button>
+
+            <div class="border-b border-white/[0.08] pb-6 mb-10">
+                <span class="font-mono-tag text-xs uppercase tracking-widest text-amber-400" id="brawl-view-tag">2. Divízió Keret</span>
+                <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight uppercase mt-1" id="brawl-view-title">
+                    Brawl Stars Csapat
+                </h2>
+            </div>
+
+            <div class="space-y-3">
+                <!-- Tímeja -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-purple-400/40">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-purple-500/10 text-purple-300 border border-purple-500/30 role-badge" data-role="coach">
+                            Edző
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">Tímeja</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag" id="brawl-role-desc-timeja">Draft és Taktikai Vezető</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400" id="brawl-device-tactics">Taktika</span>
+                    </div>
+                </div>
+
+                <!-- IMP | FFR -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-rose-400/40">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-rose-500/10 text-rose-300 border border-rose-500/30 role-badge" data-role="mod">
+                            Moderátor
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">IMP | FFR</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag" id="brawl-role-desc-ffr">Csapat Adminisztráció</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400">OnePlus Nord 5 5G</span>
+                    </div>
+                </div>
+
+                <!-- IMP | lonino -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-rose-400/40">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-rose-500/10 text-rose-300 border border-rose-500/30 role-badge" data-role="mod">
+                            Moderátor
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">IMP | lonino</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag" id="brawl-role-desc-lonino">Csapat Adminisztráció</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400">Galaxy S23 Ultra</span>
+                    </div>
+                </div>
+
+                <!-- IMP | BLightAdee -->
+                <div class="pro-card rounded-lg p-5 flex items-center justify-between hover:border-emerald-400/40">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-mono-tag uppercase tracking-wider px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 role-badge" data-role="tech">
+                            Technikai Támogatás
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white tracking-tight">IMP | BLightAdee</h3>
+                            <p class="text-xs text-neutral-400 font-mono-tag" id="brawl-role-desc-tech">Hardver és Infrastruktúra</p>
+                        </div>
+                    </div>
+                    <div class="text-right max-w-[180px] sm:max-w-none text-right">
+                        <span class="text-xs font-mono-tag text-neutral-400 block truncate">Pixel 10 Pro / iPhone 14 Pro Max</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- View: Tournaments Ledger -->
+        <section id="view-events" class="hidden-view max-w-4xl mx-auto px-6 py-16 fade-in">
+            <button onclick="showView('main')" class="text-xs font-mono-tag uppercase tracking-widest text-neutral-400 hover:text-amber-400 transition-colors flex items-center space-x-2 mb-10 back-btn-text">
+                ← Vissza a Divíziókhoz
+            </button>
+
+            <div class="border-b border-white/[0.08] pb-6 mb-12">
+                <span class="font-mono-tag text-xs uppercase tracking-widest text-amber-400" id="events-view-tag">Történelmi Eredmények</span>
+                <h2 id="title-events-page" class="text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight uppercase mt-1">
+                    Versenyeredmények Könyve
+                </h2>
+                <p class="text-neutral-400 text-sm mt-2" id="events-view-desc">Hivatalos bajnokságokon és független körversenyeken igazolt versenyeredmények.</p>
+            </div>
+
+            <!-- Brawl Stars Ledger -->
+            <div class="mb-12">
+                <div class="flex items-center space-x-3 mb-5">
+                    <span class="w-1.5 h-4 bg-amber-400 rounded-sm"></span>
+                    <h3 class="text-sm font-mono-tag font-bold uppercase tracking-wider text-white" id="events-brawl-head">
+                        Brawl Stars Divízió
+                    </h3>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="pro-card rounded-lg p-5 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-mono-tag text-neutral-400">2026. 03. 07</span>
+                            <h4 class="text-lg font-bold text-white mt-0.5">Brawl Stars Championship</h4>
+                            <p class="text-xs text-neutral-400" id="ev-desc-bsc">Hivatalos Supercell Versenysorozat</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] font-mono-tag px-2 py-0.5 bg-neutral-800 text-neutral-300 rounded uppercase tracking-wider status-label-result">
+                                Eredmény
+                            </span>
+                            <p class="text-xl font-display font-extrabold text-amber-400 mt-1">TOP 373</p>
+                        </div>
+                    </div>
+
+                    <div class="pro-card rounded-lg p-5 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-mono-tag text-neutral-400">2026. 03. 21</span>
+                            <h4 class="text-lg font-bold text-white mt-0.5">DEADEND #3</h4>
+                            <p class="text-xs text-neutral-400" id="ev-desc-deadend">Regionális Meghívásos Versenyág</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] font-mono-tag px-2 py-0.5 bg-neutral-800 text-neutral-300 rounded uppercase tracking-wider status-label-result">
+                                Eredmény
+                            </span>
+                            <p class="text-xl font-display font-extrabold text-amber-400 mt-1">TOP 64</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PUBG Mobile Ledger -->
+            <div>
+                <div class="flex items-center space-x-3 mb-5">
+                    <span class="w-1.5 h-4 bg-amber-400 rounded-sm"></span>
+                    <h3 class="text-sm font-mono-tag font-bold uppercase tracking-wider text-white" id="events-pubg-head">
+                        PUBG Mobile Divízió
+                    </h3>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="pro-card rounded-lg p-5 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-mono-tag text-neutral-400">2026. 03. 15</span>
+                            <h4 class="text-lg font-bold text-white mt-0.5">Cross Contenders Tournament</h4>
+                            <p class="text-xs text-neutral-400" id="ev-desc-ccont">Pro-Am Mobilos Körverseny</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] font-mono-tag px-2 py-0.5 bg-neutral-800 text-neutral-300 rounded uppercase tracking-wider status-label-result">
+                                Eredmény
+                            </span>
+                            <p class="text-xl font-display font-extrabold text-amber-400 mt-1">TOP 25</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <section id="view-events" class="hidden-view py-16 max-w-4xl mx-auto px-6 fade-in">
-        <button onclick="showView('main')" class="text-gray-400 hover:text-[#d4af37] font-bold mb-8 transition tracking-widest uppercase text-xs flex items-center gap-2 back-btn-text">← Back</button>
-        <h2 id="title-events-page" class="text-5xl font-title font-black mb-12 gold-gradient uppercase tracking-widest text-center">Tournament Ledger</h2>
-        
-        <div class="mb-12">
-            <h3 class="text-xl font-title text-[#d4af37] mb-4 tracking-widest uppercase border-b border-white/10 pb-2">// Brawl Stars</h3>
-            <div class="space-y-4">
-                <div class="cyber-card p-5 rounded-lg flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-gray-500 font-mono">2026. 03. 07</p>
-                        <h4 class="text-lg font-bold tracking-wide text-white">Brawl Stars Championship</h4>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded font-bold uppercase tracking-wider status-label-result">Result</span>
-                        <p class="text-emerald-400 font-title font-bold text-lg mt-1">TOP 373</p>
-                    </div>
+    <footer class="border-t border-white/[0.08] bg-[#070709] py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded bg-amber-400/20 text-amber-400 border border-amber-400/40 flex items-center justify-center font-bold text-xs font-display">
+                    IMP
                 </div>
-                <div class="cyber-card p-5 rounded-lg flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-gray-500 font-mono">2026. 03. 21</p>
-                        <h4 class="text-lg font-bold tracking-wide text-white">DEADEND #3</h4>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded font-bold uppercase tracking-wider status-label-result">Result</span>
-                        <p class="text-emerald-400 font-title font-bold text-lg mt-1">TOP 64</p>
-                    </div>
-                </div>
+                <span class="text-xs font-mono-tag uppercase tracking-widest text-neutral-400">
+                    IMPERIUM ESPORTS © 2026
+                </span>
+            </div>
+
+            <div class="flex items-center space-x-6 text-xs font-mono-tag text-neutral-400">
+                <a href="https://discord.gg/6PqT8dskdp" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors uppercase" id="footer-discord-text">
+                    Hivatalos Discord
+                </a>
+                <span class="text-neutral-700">•</span>
+                <span class="text-neutral-400">PUBG Mobile & Brawl Stars</span>
             </div>
         </div>
-
-        <div>
-            <h3 class="text-xl font-title text-[#d4af37] mb-4 tracking-widest uppercase border-b border-white/10 pb-2">// PUBG Mobile</h3>
-            <div class="cyber-card p-5 rounded-lg flex justify-between items-center">
-                <div>
-                    <p class="text-xs text-gray-500 font-mono">2026. 03. 15</p>
-                    <h4 class="text-lg font-bold tracking-wide text-white">Cross Contenders Tournament</h4>
-                </div>
-                <div class="text-right">
-                    <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded font-bold uppercase tracking-wider status-label-result">Result</span>
-                    <p class="text-emerald-400 font-title font-bold text-lg mt-1">TOP 25</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="view-pubg" class="hidden-view py-16 max-w-3xl mx-auto px-6 fade-in">
-        <button onclick="showView('main')" class="text-gray-400 hover:text-[#d4af37] font-bold mb-8 transition tracking-widest uppercase text-xs back-btn-text">← Back</button>
-        <h2 class="text-5xl font-title font-black mb-12 gold-gradient uppercase tracking-widest text-center">PUBG Mobile Squad</h2>
-        
-        <div class="space-y-4">
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-[#d4af37] flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-[#d4af37]/20 text-[#d4af37] px-2 py-0.5 rounded font-black uppercase tracking-wider">Leader</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">Kroniksz <span class="text-sm font-normal text-gray-400">(IMP x B3N3D3K)</span></h4>
-                </div>
-                <div class="text-right text-xs text-gray-500 font-mono">Pixel 8a</div>
-            </div>
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Coach</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">Tímeja</h4>
-                </div>
-            </div>
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Moderator</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">FFR</h4>
-                </div>
-                <div class="text-right text-xs text-gray-500 font-mono">OnePlus Nord 5 5G</div>
-            </div>
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-blue-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Social Manager</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">IMP x nagyakoska</h4>
-                </div>
-                <div class="text-right text-xs text-gray-500 font-mono">Galaxy S22</div>
-            </div>
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-pink-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-pink-500/20 text-pink-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Player</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">IMP x Łęvøxÿ</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="view-brawl" class="hidden-view py-16 max-w-3xl mx-auto px-6 fade-in">
-        <button onclick="showView('main')" class="text-gray-400 hover:text-[#d4af37] font-bold mb-8 transition tracking-widest uppercase text-xs back-btn-text">← Back</button>
-        <h2 class="text-5xl font-title font-black mb-12 gold-gradient uppercase tracking-widest text-center">Brawl Stars Squad</h2>
-        
-        <div class="space-y-4">
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-purple-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Coach</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">Tímeja</h4>
-                </div>
-            </div>
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Moderator</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">IMP | FFR</h4>
-                </div>
-                <div class="text-right text-xs text-gray-500 font-mono">OnePlus Nord 5 5G</div>
-            </div>
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-red-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Moderator</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">IMP | lonino</h4>
-                </div>
-                <div class="text-right text-xs text-gray-500 font-mono">Galaxy S23 Ultra</div>
-            </div>
-            <div class="cyber-card p-5 rounded-xl border-l-4 border-emerald-500 flex justify-between items-center">
-                <div>
-                    <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-black uppercase tracking-wider">Technical Support</span>
-                    <h4 class="text-xl font-bold mt-1 text-white">IMP | BLightAdee</h4>
-                </div>
-                <div class="text-right text-xs text-gray-500 font-mono text-right max-w-[180px] md:max-w-none truncate">Pixel 10 Pro / iPhone 14 Pro Max</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/5 bg-[#0d0d11]/40 backdrop-blur-sm text-center">
-        <a href="https://discord.gg/6PqT8dskdp" target="_blank" rel="noopener noreferrer" class="neon-btn inline-block bg-[#d4af37] text-black px-10 py-2.5 rounded-full font-bold hover:bg-[#fff6d1] transition duration-300 uppercase tracking-widest text-xs">
-            Official Discord
-        </a>
     </footer>
 
     <script>
+        // Single Page Navigation controller
         function showView(viewId) {
-            ['main', 'pubg', 'brawl', 'events'].forEach(id => {
+            const views = ['main', 'pubg', 'brawl', 'events'];
+            views.forEach(id => {
                 const el = document.getElementById('view-' + id);
                 if (el) el.classList.add('hidden-view');
             });
             const targetEl = document.getElementById('view-' + viewId);
-            if (targetEl) targetEl.classList.remove('hidden-view');
+            if (targetEl) {
+                targetEl.classList.remove('hidden-view');
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Mobile drawer toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('hidden');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
         }
 
+        // Multilingual dictionary (HU, RO, EN)
         const translations = {
             hu: {
-                navGames: "Játékok", navEvents: "Események", heroQuote: '"Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák."',
-                heroBtn: "Csatlakozás", titleGames: "Játékaink", btnView: "Megtekintés →", backBtn: "← Vissza", upcoming: "Következik", result: "Eredmény",
-                allEvents: "Összes esemény megtekintése", titleEventsPage: "Versenyeredmények"
+                navGames: "Divíziók",
+                navEvents: "Versenyek",
+                navCommunity: "Közösség",
+                mobileNavDiscord: "Csatlakozás Discordra →",
+                heroStatus: "Aktív Szezon 2026",
+                heroQuote: '„Ahol a fegyelem és a tűzerő találkozik, ott születnek a legendák.”',
+                heroBtn: "Csatlakozás",
+                heroSecondaryBtn: "Versenyeredmények",
+                statDivisions: "Aktív Divízió",
+                statPeak: "Contenders Csúcseredmény",
+                statReq: "Minimum Trófea Határ",
+                statRegion: "Régió",
+                sectionRosterTag: "Csapatok",
+                titleGames: "Versenyágak",
+                sectionRosterDesc: "Válassz divíziót a csapatfelállások, a versenyeszközök és a játékosprofilok megtekintéséhez.",
+                cardPubgDiv: "1. Divízió",
+                cardPubgDesc: "Taktikai battle royale alakulat, amely a zónairányításra, a gyors rotációkra és a végjáték utility-kihasználására összpontosít.",
+                cardPubgCount: "5 Regisztrált Tag",
+                cardBrawlDiv: "2. Divízió",
+                cardBrawlBadge: "100 000+ TRÓFEA",
+                cardBrawlDesc: "Magas szintű ladder és championship klán precíz draft koordinációval és magas szintű mechanikai mikropozicionálással.",
+                cardBrawlCount: "4 Fő Vezetőség & Játékos",
+                bannerEventsTag: "Verseny Történet",
+                bannerEventsTitle: "Hivatalos Versenykönyv",
+                bannerEventsDesc: "Cross Contenders, Brawl Stars Bajnokság és közösségi összecsapások.",
+                allEvents: "Összes Esemény Megtekintése",
+                btnView: "Csapat megtekintése →",
+                backBtn: "← Vissza a Divíziókhoz",
+                pubgViewTag: "1. Divízió Keret",
+                pubgViewTitle: "PUBG Mobile Csapat",
+                pubgViewSubtitle: "Aktív rang: ACE MASTER+ • Szabványos Versenyeszköz Szabályzat",
+                pubgTimejaRole: "",
+                pubgTimejaDevice: "Vezetőség",
+                pubgFfrRole: "",
+                pubgAkosRole: "",
+                pubgLevoxyRole: "Fragger / Belépő",
+                pubgLevoxyDevice: "Versenymobil",
+                brawlViewTag: "2. Divízió Keret",
+                brawlViewTitle: "Brawl Stars Csapat",
+                brawlViewSubtitle: "Aktív követelmény: 100 000+ Trófea • Mester Liga színvonal",
+                brawlTimejaRole: "Draft és Taktikai Vezető",
+                brawlTacticsDevice: "Taktika",
+                brawlFfrRole: "Csapat Adminisztráció",
+                brawlLoninoRole: "Csapat Adminisztráció",
+                brawlTechRole: "Hardver és Infrastruktúra",
+                eventsViewTag: "Történelmi Eredmények",
+                titleEventsPage: "Versenyeredmények",
+                eventsViewDesc: "Hivatalos bajnokságokon és független körversenyeken igazolt versenyeredmények.",
+                eventsBrawlHead: "Brawl Stars Divízió",
+                eventsPubgHead: "PUBG Mobile Divízió",
+                evDescBsc: "Hivatalos Supercell Versenysorozat",
+                evDescDeadend: "Regionális Meghívásos Versenyág",
+                evDescCcont: "Pro-Am Mobilos Körverseny",
+                result: "Eredmény",
+                footerDiscordText: "Hivatalos Discord",
+                roles: {
+                    leader: "Csapatvezető",
+                    coach: "Edző",
+                    mod: "Moderátor",
+                    social: "Közösségi Menedzser",
+                    player: "Játékos",
+                    tech: "Technikai Támogatás"
+                }
+            },
+            ro: {
+                navGames: "Divizii",
+                navEvents: "Turnee",
+                navCommunity: "Comunitate",
+                mobileNavDiscord: "Alătură-te pe Discord →",
+                heroStatus: "Sezon Activ 2026",
+                heroQuote: '„Acolo unde disciplina și puterea de foc se întâlnesc, iau naștere legendele.”',
+                heroBtn: "Alătură-te",
+                heroSecondaryBtn: "Istoric Turnee",
+                statDivisions: "Divizii Active",
+                statPeak: "Vârf Contenders",
+                statReq: "Trofee",
+                statRegion: "Bază Regională",
+                sectionRosterTag: "Componența Echipelor",
+                titleGames: "Divizii Competitive",
+                sectionRosterDesc: "Selectează o divizie pentru a inspecta rolurile, dispozitivele competitive și profilurile jucătorilor.",
+                cardPubgDiv: "Divizia 01",
+                cardPubgDesc: "Echipă tactică de battle royale axată pe controlul zonelor, rotații rapide și folosirea agresivă a utilităților în fazele finale.",
+                cardPubgCount: "4 Membri Înregistrați",
+                cardBrawlDiv: "Divizia 02",
+                cardBrawlBadge: "100.000+ TROFEE",
+                cardBrawlDesc: "Clan de top pentru ladder și campionate, specializat în coordonarea draftului și micro-poziționare mecanică.",
+                cardBrawlCount: "4 Membri Staff & Jucători",
+                bannerEventsTag: "Palmares Competițional",
+                bannerEventsTitle: "Registrul Oficial al Turneelor",
+                bannerEventsDesc: "Cross Contenders, Campionatul Brawl Stars și turnee comunitare.",
+                allEvents: "Vezi Toate Evenimentele",
+                btnView: "Vezi Echipa →",
+                backBtn: "← Înapoi la Divizii",
+                pubgViewTag: "Lot Divizia 01",
+                pubgViewTitle: "Echipa PUBG Mobile",
+                pubgViewSubtitle: "Rang activ: ACE MASTER+ • Reglementări standard pentru dispozitive",
+                pubgTimejaRole: "",
+                pubgTimejaDevice: "Staff",
+                pubgFfrRole: "",
+                pubgAkosRole: "",
+                pubgLevoxyRole: "Fragger / Entry",
+                pubgLevoxyDevice: "Dispozitiv Competitiv",
+                brawlViewTag: "Lot Divizia 02",
+                brawlViewTitle: "Echipa Brawl Stars",
+                brawlViewSubtitle: "Cerință activă: 100.000+ Trofee • Nivel Master League",
+                brawlTimejaRole: "Coordonator Draft & Tactică",
+                brawlTacticsDevice: "Tactică",
+                brawlFfrRole: "Administrare Echipă",
+                brawlLoninoRole: "Administrare Echipă",
+                brawlTechRole: "Hardware & Infrastructură",
+                eventsViewTag: "Performanțe Istorice",
+                titleEventsPage: "Registrul Turneelor",
+                eventsViewDesc: "Rezultate competitive verificate în campionate oficiale și circuite independente.",
+                eventsBrawlHead: "Divizia Brawl Stars",
+                eventsPubgHead: "Divizia PUBG Mobile",
+                evDescBsc: "Circuit Oficial Supercell",
+                evDescDeadend: "Tablou Regional pe Bază de Invitație",
+                evDescCcont: "Circuit Pro-Am Mobile",
+                result: "Rezultat",
+                footerDiscordText: "Discord Oficial",
+                roles: {
+                    leader: "Lider",
+                    coach: "Antrenor",
+                    mod: "Moderator",
+                    social: "Manager Social",
+                    player: "Jucător",
+                    tech: "Suport Tehnic"
+                }
             },
             en: {
-                navGames: "Games", navEvents: "Events", heroQuote: '"Where discipline and firepower meet, legends are born."',
-                heroBtn: "Join Now", titleGames: "Our Games", btnView: "View Team →", backBtn: "← Back", upcoming: "Upcoming", result: "Result",
-                allEvents: "View All Events", titleEventsPage: "Tournament Ledger"
+                navGames: "Divisions",
+                navEvents: "Tournaments",
+                navCommunity: "Community",
+                mobileNavDiscord: "Join Discord →",
+                heroStatus: "Active Season 2026",
+                heroQuote: '"Where discipline and firepower meet, legends are born."',
+                heroBtn: "Join Now",
+                heroSecondaryBtn: "Tournament Record",
+                statDivisions: "Active Divisions",
+                statPeak: "Peak Contenders Tier",
+                statReq: "Trophy",
+                statRegion: "Regional Base",
+                sectionRosterTag: "Roster Lineups",
+                titleGames: "Competitive Divisions",
+                sectionRosterDesc: "Select a division to inspect squad roles, competitive equipment, and player profiles.",
+                cardPubgDiv: "Division 01",
+                cardPubgDesc: "Tactical battle royale squad focused on zone control, rotation speed, and aggressive end-circle utility execution.",
+                cardPubgCount: "4 Registered Roster",
+                cardBrawlDiv: "Division 02",
+                cardBrawlBadge: "100,000+ TROPHIES",
+                cardBrawlDesc: "High-tier ladder and championship clan specializing in high-tempo draft coordination and mechanical micro-positioning.",
+                cardBrawlCount: "4 Core Staff & Players",
+                bannerEventsTag: "Competition Record",
+                bannerEventsTitle: "Official Tournament Ledger",
+                bannerEventsDesc: "Cross Contenders, Brawl Stars Championship & community showdowns.",
+                allEvents: "View All Events",
+                btnView: "View Team →",
+                backBtn: "← Back to Divisions",
+                pubgViewTag: "Division 01 Roster",
+                pubgViewTitle: "PUBG Mobile Squad",
+                pubgViewSubtitle: "Active tier: ACE MASTER+ • Standard Competitive Device Rules",
+                pubgTimejaRole: "",
+                pubgTimejaDevice: "Tactics",
+                pubgFfrRole: "",
+                pubgAkosRole: "",
+                pubgLevoxyRole: "",
+                pubgLevoxyDevice: "Competitive Mobile",
+                brawlViewTag: "Division 02 Roster",
+                brawlViewTitle: "Brawl Stars Squad",
+                brawlViewSubtitle: "Active requirement: 100,000+ Trophies • Master League standard",
+                brawlTimejaRole: "",
+                brawlTacticsDevice: "Tactics",
+                brawlFfrRole: "",
+                brawlLoninoRole: "",
+                brawlTechRole: "",
+                eventsViewTag: "Historic Performance",
+                titleEventsPage: "Tournament Ledger",
+                eventsViewDesc: "Verified competitive placements in official championships and independent circuits.",
+                eventsBrawlHead: "Brawl Stars Division",
+                eventsPubgHead: "PUBG Mobile Division",
+                evDescBsc: "Official Supercell Circuit",
+                evDescDeadend: "Regional Invitational Bracket",
+                evDescCcont: "Pro-Am Mobile Circuit",
+                result: "Result",
+                footerDiscordText: "Official Discord",
+                roles: {
+                    leader: "Leader",
+                    coach: "Coach",
+                    mod: "Moderator",
+                    social: "Social Manager",
+                    player: "Player",
+                    tech: "Technical Support"
+                }
             }
         };
 
+        // Real-time language switcher for HU, RO, EN
         function setLanguage(lang) {
-            document.getElementById('nav-games').innerText = translations[lang].navGames;
-            document.getElementById('nav-games-mob').innerText = translations[lang].navGames;
-            document.getElementById('nav-events').innerText = translations[lang].navEvents;
-            document.getElementById('nav-events-mob').innerText = translations[lang].navEvents;
-            document.getElementById('hero-quote').innerText = translations[lang].heroQuote;
-            document.getElementById('hero-btn').innerText = translations[lang].heroBtn;
-            document.getElementById('title-games').innerText = translations[lang].titleGames;
-            document.getElementById('btn-all-events').innerText = translations[lang].allEvents;
-            document.getElementById('title-events-page').innerText = translations[lang].titleEventsPage;
-            document.querySelectorAll('.btn-view').forEach(el => el.innerText = translations[lang].btnView);
-            document.querySelectorAll('.back-btn-text').forEach(el => el.innerText = translations[lang].backBtn);
-            document.querySelectorAll('.status-label-result').forEach(el => el.innerText = translations[lang].result);
-            document.getElementById('btn-hu').classList.toggle('active', lang === 'hu');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            const t = translations[lang] || translations.hu;
+            
+            // Header Nav
+            const navGames = document.getElementById('nav-games');
+            const navEvents = document.getElementById('nav-events');
+            const navCommunity = document.getElementById('nav-community');
+            if (navGames) navGames.innerText = t.navGames;
+            if (navEvents) navEvents.innerText = t.navEvents;
+            if (navCommunity) navCommunity.innerText = t.navCommunity;
+
+            // Mobile Nav
+            const mNavGames = document.getElementById('mobile-nav-games');
+            const mNavEvents = document.getElementById('mobile-nav-events');
+            const mNavDiscord = document.getElementById('mobile-nav-discord');
+            if (mNavGames) mNavGames.innerText = t.navGames;
+            if (mNavEvents) mNavEvents.innerText = t.navEvents;
+            if (mNavDiscord) mNavDiscord.innerText = t.mobileNavDiscord;
+
+            // Hero elements
+            const heroStatus = document.getElementById('hero-status');
+            const heroQuote = document.getElementById('hero-quote');
+            const heroBtn = document.getElementById('hero-btn');
+            const heroSecondaryBtn = document.getElementById('hero-secondary-btn');
+            if (heroStatus) heroStatus.innerText = t.heroStatus;
+            if (heroQuote) heroQuote.innerText = t.heroQuote;
+            if (heroBtn) {
+                const span = heroBtn.querySelector('span');
+                if (span) span.innerText = t.heroBtn;
+            }
+            if (heroSecondaryBtn) heroSecondaryBtn.innerText = t.heroSecondaryBtn;
+
+            // Stats
+            const statDivisions = document.getElementById('stat-divisions');
+            const statPeak = document.getElementById('stat-peak');
+            const statReq = document.getElementById('stat-req');
+            const statRegion = document.getElementById('stat-region');
+            if (statDivisions) statDivisions.innerText = t.statDivisions;
+            if (statPeak) statPeak.innerText = t.statPeak;
+            if (statReq) statReq.innerText = t.statReq;
+            if (statRegion) statRegion.innerText = t.statRegion;
+
+            // Main section header & cards
+            const secRosterTag = document.getElementById('section-roster-tag');
+            const titleGames = document.getElementById('title-games');
+            const secRosterDesc = document.getElementById('section-roster-desc');
+            if (secRosterTag) secRosterTag.innerText = t.sectionRosterTag;
+            if (titleGames) titleGames.innerText = t.titleGames;
+            if (secRosterDesc) secRosterDesc.innerText = t.sectionRosterDesc;
+
+            const cardPubgDiv = document.getElementById('card-pubg-div');
+            const cardPubgDesc = document.getElementById('card-pubg-desc');
+            const cardPubgCount = document.getElementById('card-pubg-count');
+            if (cardPubgDiv) cardPubgDiv.innerText = t.cardPubgDiv;
+            if (cardPubgDesc) cardPubgDesc.innerText = t.cardPubgDesc;
+            if (cardPubgCount) cardPubgCount.innerText = t.cardPubgCount;
+
+            const cardBrawlDiv = document.getElementById('card-brawl-div');
+            const cardBrawlBadge = document.getElementById('card-brawl-badge');
+            const cardBrawlDesc = document.getElementById('card-brawl-desc');
+            const cardBrawlCount = document.getElementById('card-brawl-count');
+            if (cardBrawlDiv) cardBrawlDiv.innerText = t.cardBrawlDiv;
+            if (cardBrawlBadge) cardBrawlBadge.innerText = t.cardBrawlBadge;
+            if (cardBrawlDesc) cardBrawlDesc.innerText = t.cardBrawlDesc;
+            if (cardBrawlCount) cardBrawlCount.innerText = t.cardBrawlCount;
+
+            // Events banner
+            const bannerTag = document.getElementById('banner-events-tag');
+            const bannerTitle = document.getElementById('banner-events-title');
+            const bannerDesc = document.getElementById('banner-events-desc');
+            const btnAllEvents = document.getElementById('btn-all-events');
+            if (bannerTag) bannerTag.innerText = t.bannerEventsTag;
+            if (bannerTitle) bannerTitle.innerText = t.bannerEventsTitle;
+            if (bannerDesc) bannerDesc.innerText = t.bannerEventsDesc;
+            if (btnAllEvents) btnAllEvents.innerText = t.allEvents;
+
+            // PUBG View
+            const pubgViewTag = document.getElementById('pubg-view-tag');
+            const pubgViewTitle = document.getElementById('pubg-view-title');
+            const pubgViewSubtitle = document.getElementById('pubg-view-subtitle');
+            if (pubgViewTag) pubgViewTag.innerText = t.pubgViewTag;
+            if (pubgViewTitle) pubgViewTitle.innerText = t.pubgViewTitle;
+            if (pubgViewSubtitle) pubgViewSubtitle.innerText = t.pubgViewSubtitle;
+
+            const pubgTimejaRole = document.getElementById('pubg-role-desc-timeja');
+            const pubgTimejaDev = document.getElementById('pubg-device-timeja');
+            const pubgFfrRole = document.getElementById('pubg-role-desc-ffr');
+            const pubgAkosRole = document.getElementById('pubg-role-desc-akos');
+            const pubgLevoxyRole = document.getElementById('pubg-role-desc-levoxy');
+            const pubgLevoxyDev = document.getElementById('pubg-device-levoxy');
+            if (pubgTimejaRole) pubgTimejaRole.innerText = t.pubgTimejaRole;
+            if (pubgTimejaDev) pubgTimejaDev.innerText = t.pubgTimejaDevice;
+            if (pubgFfrRole) pubgFfrRole.innerText = t.pubgFfrRole;
+            if (pubgAkosRole) pubgAkosRole.innerText = t.pubgAkosRole;
+            if (pubgLevoxyRole) pubgLevoxyRole.innerText = t.pubgLevoxyRole;
+            if (pubgLevoxyDev) pubgLevoxyDev.innerText = t.pubgLevoxyDevice;
+
+            // Brawl View
+            const brawlViewTag = document.getElementById('brawl-view-tag');
+            const brawlViewTitle = document.getElementById('brawl-view-title');
+            const brawlViewSubtitle = document.getElementById('brawl-view-subtitle');
+            if (brawlViewTag) brawlViewTag.innerText = t.brawlViewTag;
+            if (brawlViewTitle) brawlViewTitle.innerText = t.brawlViewTitle;
+            if (brawlViewSubtitle) brawlViewSubtitle.innerText = t.brawlViewSubtitle;
+
+            const brawlTimejaRole = document.getElementById('brawl-role-desc-timeja');
+            const brawlTactics = document.getElementById('brawl-device-tactics');
+            const brawlFfrRole = document.getElementById('brawl-role-desc-ffr');
+            const brawlLoninoRole = document.getElementById('brawl-role-desc-lonino');
+            const brawlTechRole = document.getElementById('brawl-role-desc-tech');
+            if (brawlTimejaRole) brawlTimejaRole.innerText = t.brawlTimejaRole;
+            if (brawlTactics) brawlTactics.innerText = t.brawlTacticsDevice;
+            if (brawlFfrRole) brawlFfrRole.innerText = t.brawlFfrRole;
+            if (brawlLoninoRole) brawlLoninoRole.innerText = t.brawlLoninoRole;
+            if (brawlTechRole) brawlTechRole.innerText = t.brawlTechRole;
+
+            // Roles badges
+            document.querySelectorAll('.role-badge').forEach(badge => {
+                const roleKey = badge.getAttribute('data-role');
+                if (roleKey && t.roles && t.roles[roleKey]) {
+                    badge.innerText = t.roles[roleKey];
+                }
+            });
+
+            // Events Page View
+            const eventsViewTag = document.getElementById('events-view-tag');
+            const titleEventsPage = document.getElementById('title-events-page');
+            const eventsViewDesc = document.getElementById('events-view-desc');
+            const eventsBrawlHead = document.getElementById('events-brawl-head');
+            const eventsPubgHead = document.getElementById('events-pubg-head');
+            const evDescBsc = document.getElementById('ev-desc-bsc');
+            const evDescDeadend = document.getElementById('ev-desc-deadend');
+            const evDescCcont = document.getElementById('ev-desc-ccont');
+            if (eventsViewTag) eventsViewTag.innerText = t.eventsViewTag;
+            if (titleEventsPage) titleEventsPage.innerText = t.titleEventsPage;
+            if (eventsViewDesc) eventsViewDesc.innerText = t.eventsViewDesc;
+            if (eventsBrawlHead) eventsBrawlHead.innerText = t.eventsBrawlHead;
+            if (eventsPubgHead) eventsPubgHead.innerText = t.eventsPubgHead;
+            if (evDescBsc) evDescBsc.innerText = t.evDescBsc;
+            if (evDescDeadend) evDescDeadend.innerText = t.evDescDeadend;
+            if (evDescCcont) evDescCcont.innerText = t.evDescCcont;
+
+            // Shared button classes & results
+            document.querySelectorAll('.btn-view').forEach(el => el.innerText = t.btnView);
+            document.querySelectorAll('.back-btn-text').forEach(el => el.innerText = t.backBtn);
+            document.querySelectorAll('.status-label-result').forEach(el => el.innerText = t.result);
+
+            // Footer
+            const footerDiscord = document.getElementById('footer-discord-text');
+            if (footerDiscord) footerDiscord.innerText = t.footerDiscordText;
+
+            // Language switch buttons active style
+            const langs = ['en', 'hu', 'ro'];
+            langs.forEach(item => {
+                const btn = document.getElementById('btn-' + item);
+                if (btn) {
+                    if (item === lang) {
+                        btn.className = "px-2.5 py-0.5 rounded-full transition-all text-white bg-white/10";
+                    } else {
+                        btn.className = "px-2.5 py-0.5 rounded-full transition-all text-neutral-400 hover:text-white";
+                    }
+                }
+            });
         }
 
-        // Alapértelmezett indítás angolul
-        setLanguage('en');
+        // Initialize with Hungarian as primary default
+        window.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en');
+        });
     </script>
 </body>
 </html>
